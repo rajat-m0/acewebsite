@@ -1,0 +1,1230 @@
+/*
+    #Rough screen size estimations. To be changed later during testing
+    1440px: Laptop L  =>90em
+    1024px: Regular Laptop  =>64em
+    768px: Tablet Portrait  =>48em
+    425px: Mobile L  =>26.56em
+    375px: Mobile M  =>23.43em
+    320px: Mobile S  =>20em
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.duh {
+  display: flex;
+  align-items: center;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+.submission-container-openfolder {
+  display: flex;
+  height: 100%;
+  width: 4rem;
+}
+
+.submission-container-btn {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  width: 15rem;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.subheader {
+  font-size: 3.33em;
+  font-weight: 500;
+}
+
+.headline {
+  font-size: 8.33em;
+  font-weight: bold;
+}
+
+.largebody {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.body {
+  font-size: 0.7em;
+  font-weight: normal;
+}
+
+.button {
+  font-size: 1.83em;
+  font-weight: 500;
+}
+
+.task-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.background {
+  height: 130vh;
+}
+
+.logo img {
+  height: 50%;
+  cursor: pointer;
+}
+
+.logo {
+  height: 100%;
+  width: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#f-text {
+  color: white;
+}
+
+.logout-btn {
+  background-color: rgba(0, 0, 0, 0.15);
+  height: 60%;
+  width: 90%;
+  display: flex;
+  border-radius: 10rem;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa-sign-out-alt {
+  margin-left: 0.5rem;
+}
+
+.logout {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 14vw;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 15vh;
+  top: 0;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.footer {
+  width: 100%;
+  bottom: 0;
+  height: 15vh;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.social {
+  display: flex;
+  width: 30vw;
+  height: 10vh;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.social-container a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-container {
+  height: 50%;
+  width: 2.5vw;
+  background-color: rgba(0, 0, 0, 0.15);
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  font-size: 2.2em;
+}
+
+.copyright {
+  display: flex;
+  width: 30vw;
+  padding-bottom: 1.4rem;
+  height: 3vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(1, 1fr);
+  position: relative;
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  justify-content: center;
+}
+
+.content {
+  position: absolute;
+}
+
+.heading {
+  width: 90vw;
+  height: 10vh;
+  margin-top: 4rem;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 80vh;
+  width: 90vw;
+}
+
+.task {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 25vw;
+  height: 65vh;
+  border-radius: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.middle {
+  backdrop-filter: blur(10px);
+}
+
+.card-container {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+hr {
+  background-color: #ffffff;
+  border: none;
+  height: 0.1rem;
+}
+
+.submission {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  height: 2rem;
+}
+
+.checked-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 10rem;
+  color: #ffffff;
+  font-size: 0.4em;
+}
+
+
+.btn {
+  width: 6rem;
+  cursor: pointer;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.openfolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  cursor: pointer;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 5rem;
+}
+
+.openfolder img {
+  max-height: 1rem;
+}
+
+.title-container {
+  width: 100%;
+  height: 2.5rem;
+  flex-direction: row;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+}
+
+.largebody-container {
+  width: 100%;
+  height: 1.1rem;
+  overflow: hidden;
+}
+
+.body-container {
+  width: 100%;
+  height: 14rem;
+  overflow: hidden;
+}
+
+.task-container-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  width: 90vw;
+}
+
+.angle-btn {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 2rem;
+  cursor: pointer;
+  height: 2.4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.angle-btn img {
+  max-height: 2.4rem;
+  margin-right: 1rem;
+  z-index: -1;
+}
+
+.title-container-upload {
+  width: 100%;
+  height: 2.5rem;
+  flex-direction: row;
+  display: flex;
+  overflow: hidden;
+}
+
+.upload-body-container {
+  width: 100%;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 14rem;
+  border-radius: 1rem;
+  border: solid;
+  border-width: 2px;
+  cursor: pointer;
+  border-color: #ffffff;
+  overflow: hidden;
+}
+
+.upload-submission {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 2rem;
+}
+
+
+.upload-btn {
+  width: 6rem;
+  cursor: pointer;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+.checked-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+@media (max-width: 192em) {
+
+  /*Any 4k screen(2560px/192em) related responsive design component goes here*/
+
+  .social-container {
+    border-radius: 4rem;
+  }
+
+  .logout-btn {
+    font-size: 2em;
+  }
+
+  .social {
+    font-size: 0.9em;
+  }
+
+  #f-text {
+    font-size: 1.8em;
+  }
+
+  .angle-btn-main {
+    font-size: 8em;
+  }
+
+  .img-container img {
+    max-height: 120vh;
+    max-width: 120vw;
+  }
+
+  .checked-btn {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .checked-btn-container {
+    width: 13rem;
+  }
+
+  .task-heading {
+    font-size: 7rem;
+  }
+
+  .title {
+    font-size: 4em;
+    margin-bottom: 1rem;
+  }
+
+  .title-container {
+    height: 5rem;
+  }
+
+  .submission {
+    height: 5rem;
+    justify-content: unset;
+  }
+
+  .openfolder {
+    width: 100%;
+    border-radius: 100%;
+  }
+
+  .fa-folder-open {
+    font-size: 2.3em;
+  }
+
+  .fa-check-circle {
+    font-size: 3em;
+  }
+
+  .submission-container-btn {
+    margin-left: 3rem;
+  }
+
+  .btn {
+    width: 100%;
+    border-radius: 90rem;
+    font-size: 2em;
+  }
+
+  .fa-arrow-right {
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+  }
+
+  .udiv-crossicon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    z-index: 1000;
+    cursor: default;
+    height: 100%;
+    width: 10%;
+  }
+
+  .udiv-txt {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+    font-size: 3em;
+    width: 70%;
+  }
+
+  .udiv-ficon {
+    display: flex;
+    font-size: 7em;
+    height: 100%;
+    width: 20%;
+  }
+
+  .upload-container-ready {
+    display: flex;
+    height: 7rem;
+    width: 80%;
+  }
+
+  .largebody {
+    font-size: 2em;
+    height: 3rem;
+    margin-top: 1rem;
+  }
+
+  .body-container {
+    height: 30rem;
+  }
+
+  .body {
+    font-size: 1.5em;
+  }
+
+  .title-container-upload {
+    height: 5rem;
+  }
+
+  .angle-btn {
+    height: 5rem;
+    margin-right: 3rem;
+    font-size: 1.2em;
+  }
+
+  .upload-submission {
+    height: 5rem;
+  }
+
+  .upload-btn {
+    width: 15rem;
+    font-size: 1.9em;
+    border-radius: 20rem;
+  }
+
+  .upload-body-container {
+    height: 5rem;
+    font-size: 1.71em;
+  }
+
+  .upload-container {
+    height: 30rem;
+    font-size: 1em;
+  }
+
+  .splmed {
+    font-size: 0.5em !important;
+    width: 20rem;
+    margin-left: 5rem;
+  }
+
+  .spl {
+    font-size: 0.5em !important;
+    width: 20rem;
+    margin-left: 5rem;
+  }
+
+  .spl-ch {
+    margin-left: 2rem;
+  }
+
+  .spl-lg-bd-cont {
+    height: 38rem !important;
+    font-size: 2em !important;
+  }
+
+  .spl-sub-submed {
+    font-size: 0.5em;
+    margin-left: 58rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spl-sub-sub {
+    font-size: 0.5em;
+    margin-left: 66rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spl-lg-tt-cont {
+    font-size: 2.5em;
+  }
+
+}
+
+@media (max-width: 2000px) {
+
+  /*Anything between 4k and large laptop*/
+  .task {
+    height: 70vh;
+  }
+
+  .upload-body-container {
+    height: 6rem;
+  }
+
+  .spl-sub-sub {
+    font-size: 0.5em;
+    margin-left: 34rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .spl-sub-submed {
+    font-size: 0.5em;
+    margin-left: 27rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 90em) {
+
+  /*Any Large Laptop(1440px/90em) related responsive design component goes here*/
+
+  #f-text {
+    font-size: 1em;
+  }
+
+  .logout-btn {
+    font-size: 1.2em;
+  }
+
+  .social {
+    font-size: 0.5em;
+  }
+
+  .angle-btn-main {
+    font-size: 5em;
+  }
+
+  .udiv-crossicon {
+    font-size: 2em;
+  }
+
+  .udiv-txt {
+    font-size: 2em;
+  }
+
+  .udiv-ficon {
+    font-size: 4em;
+    align-items: center;
+  }
+
+  .upload-container-ready {
+    height: 5rem;
+  }
+
+  .checked-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .task {
+    width: 27vw;
+    height: 68vh;
+  }
+
+  .checked-btn-container {
+    width: 8rem;
+  }
+
+  .task-heading {
+    font-size: 3.8rem;
+  }
+
+  .heading {
+    margin-top: 0;
+  }
+
+  .title {
+    font-size: 2.4em;
+  }
+
+  .title-container {
+    height: 7rem;
+  }
+
+  .submission {
+    height: 5rem;
+    justify-content: unset;
+  }
+
+  .openfolder {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+  }
+
+  .fa-folder-open {
+    font-size: 1.5em;
+  }
+
+  .submission-container-btn {
+    margin-left: 1rem;
+  }
+
+  .btn {
+    width: 12rem;
+    border-radius: 90rem;
+    font-size: 1em;
+  }
+
+  .largebody {
+    margin-top: 1rem;
+    font-size: 1em;
+    height: 2rem;
+  }
+
+  .body-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 20rem;
+  }
+
+  .body {
+    font-size: 0.9em;
+  }
+
+  .title-container-upload {
+    height: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .angle-btn {
+    height: 100%;
+    margin-right: 1rem;
+    font-size: 1.2em;
+  }
+
+  .upload-submission {
+    height: 4rem;
+  }
+
+  .upload-btn {
+    width: 12rem;
+    font-size: 1.2em;
+    border-radius: 20rem;
+  }
+
+  .upload-body-container {
+    margin-top: 1rem;
+    height: 5rem;
+    font-size: 0.9em;
+    margin-bottom: 1rem;
+  }
+
+  .upload-container {
+    height: 20rem;
+    font-size: 0.8em;
+    margin-bottom: 1rem;
+  }
+
+  .splmed {
+    font-size: 0.5em !important;
+    width: 10rem;
+    height: 3.5rem;
+    margin-left: 5rem;
+  }
+
+  .spl {
+    font-size: 0.5em !important;
+    width: 10rem;
+    height: 3.5rem;
+    margin-left: 5rem;
+  }
+
+  .spl-lg-bd-cont {
+    height: 30rem !important;
+    font-size: 1em !important;
+  }
+
+  .spl-sub-submed {
+    font-size: 0.5em;
+    margin-left: 23rem;
+  }
+
+  .spl-sub-sub {
+    font-size: 0.5em;
+    margin-left: 28rem;
+  }
+
+  .spl-lg-tt-cont {
+    font-size: 1.5em;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 64em) {
+
+  /*Any Regular Laptop(1024px/64em) related responsive design component goes here*/
+
+  .logout-btn {
+    font-size: 1em;
+  }
+
+  #f-text {
+    font-size: 0.6em;
+  }
+
+  .social {
+    font-size: 0.35em;
+  }
+
+  .angle-btn-main {
+    font-size: 3.5em;
+  }
+
+  .udiv-crossicon {
+    font-size: 1.5em;
+  }
+
+  .udiv-txt {
+    font-size: 1.5em;
+  }
+
+  .udiv-ficon {
+    font-size: 3em;
+  }
+
+  .upload-container-ready {
+    height: 3rem;
+  }
+
+  .task {
+    width: 27vw;
+    height: 70vh;
+  }
+
+  .checked-btn-container {
+    width: 6rem;
+  }
+
+  .task-heading {
+    font-size: 2.7rem;
+  }
+
+  .title {
+    font-size: 1.8em;
+  }
+
+  .title-container {
+    height: 8rem;
+  }
+
+  .submission {
+    height: 4rem;
+    align-items: flex-end;
+  }
+
+  .openfolder {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .fa-folder-open {
+    font-size: 1.2em;
+  }
+
+  .submission-container-btn {
+    margin-left: 1rem;
+  }
+
+  .btn {
+    width: 8rem;
+    font-size: 0.9em;
+  }
+
+  .largebody {
+    font-size: 0.9em;
+  }
+
+  .body-container {
+    height: 14rem;
+  }
+
+  .body {
+    font-size: 0.8em;
+  }
+
+  .title-container-upload {
+    align-items: flex-end;
+  }
+
+  .angle-btn {
+    margin-right: 0.5rem;
+  }
+
+  .upload-btn {
+    width: 10rem;
+  }
+
+  .splmed {
+    height: 2.5rem;
+    margin-left: 2rem;
+  }
+
+  .spl {
+    height: 2.5rem;
+    margin-left: 2rem;
+  }
+
+  .spl-lg-bd-cont {
+    height: 30rem !important;
+    font-size: 1em !important;
+  }
+
+  .spl-sub-submed {
+    font-size: 0.5em;
+    margin-left: 16rem;
+  }
+
+  .spl-sub-sub {
+    font-size: 0.5em;
+    margin-left: 20rem;
+  }
+
+  .spl-lg-tt-cont {
+    font-size: 1.5em;
+    height: 4rem;
+    margin-top: 0.1rem;
+  }
+}
+
+@media (max-width: 48em) {
+
+  /*Any Tablet Portrait(768px/48em) related responsive design component goes here*/
+  .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+
+  .task-container {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 230vh;
+  }
+
+  .task {
+    margin-bottom: 2rem;
+    height: 130vh;
+    width: 40vw;
+  }
+
+  .title-container {
+    height: 6rem;
+    margin-bottom: 0;
+  }
+
+  .checked-btn {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+
+  .largebody {
+    margin-top: 0.5rem;
+  }
+
+  .body-container {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .body-container {
+    height: 17rem;
+  }
+
+  .submission {
+    height: 4.3rem;
+  }
+
+  .background {
+    height: 280vh;
+  }
+
+  .bg-tabandlower {
+    height: 140vh;
+  }
+
+  .task-tabandlower {
+    height: 80vh;
+  }
+
+  .upload-body-container {
+    margin-top: 0.5rem;
+    height: 7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .task-container-tabandlower {
+    justify-content: center;
+    width: 90vw;
+  }
+
+  .spl-sub-sub {
+    margin-left: 7rem;
+    width: 10rem;
+    font-size: 0.5em;
+  }
+
+  .spl-lg-tt-cont {
+    font-size: 1em;
+  }
+
+  .spl-sub-submed {
+    margin-left: 7rem;
+    width: 13rem;
+    font-size: 0.5em;
+  }
+
+  .social-container {
+    width: 3vw;
+  }
+}
+
+@media (max-width: 425px) {
+
+  /*Any Mobile Large(425px/26.56em) related responsive design component goes here*/
+  .logo,
+  .logout {
+    width: 25vw;
+  }
+
+  .task {
+    width: 65vw !important;
+  }
+
+  .social {
+    width: 50vw;
+    height: 10vh;
+  }
+
+  .social-container {
+    width: 6vw;
+  }
+
+  .copyright {
+    width: 50vw;
+    height: 4vh;
+    align-items: unset;
+  }
+
+  .bg-tabandlower {
+    height: 180vh;
+  }
+
+  .task-tabandlower {
+    height: 120vh;
+    width: 100% !important;
+  }
+
+  .title-container-tabandlower {
+    font-size: 1.2em;
+    height: 3rem;
+    align-items: center;
+  }
+
+  .checked-btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: 0.3em;
+  }
+
+  .spl-ch {
+    font-size: 1.4em;
+    width: 10rem;
+    margin-left: 1rem;
+  }
+
+  .spl-sub-sub {
+    margin-left: 1rem;
+    width: 20rem;
+  }
+
+  .spl {
+    height: 1.5rem;
+    width: 12rem;
+  }
+
+  .spl-sub-submed {
+    margin-left: 1rem;
+    width: 10rem;
+  }
+
+  .openfolder {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8em;
+  }
+
+  .btn {
+    height: 2rem;
+  }
+
+  .splmed {
+    height: 1.5rem;
+    width: 16rem;
+  }
+
+  .spl-lg-tt-cont {
+    font-size: 0.8em;
+    height: 2rem;
+  }
+
+  .largebody {
+    font-size: 0.8em;
+  }
+
+  .body {
+    font-size: 0.7em;
+  }
+
+  .spl-lg-bd-cont {
+    font-size: 0.7em !important;
+  }
+}
+
+
+@media (max-width: 375px) {
+
+  /*Any Mobile Medium(375px/23.45em) related responsive design component goes here*/
+  .logout,
+  .logo {
+    width: 40vw;
+  }
+
+  .logout-btn {
+    width: 70%;
+    font-size: 0.8em;
+  }
+
+  .task {
+    width: 100% !important;
+  }
+
+  .spl {
+    margin-left: 3.5rem;
+    height: 1.5rem;
+    width: 5rem;
+    font-size: 0.45em !important;
+  }
+
+  .fa-arrow-right {
+    margin-left: 0;
+  }
+
+  .spl-sub-submed {
+    width: 0;
+    visibility: hidden;
+  }
+
+  .spl-sub-sub {
+    width: 0;
+    visibility: hidden;
+  }
+
+  .checked-btn-container {
+    width: 4rem;
+    margin-left: 0.5rem;
+  }
+
+  .spl-lg-tt-cont {
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 20em) {
+
+  /*Any Mobile Small(320px/20em) related responsive design component goes here*/
+  .task-heading {
+    font-size: 2.5em;
+  }
+
+  .logout {
+    justify-content: space-evenly;
+  }
+
+  .logo img {
+    height: 40%;
+  }
+
+  .checked-btn-container {
+    width: 5rem;
+  }
+
+  .spl {
+    margin-left: 0;
+  }
+
+  .logout-btn {
+    height: 50%;
+    font-size: 0.8em;
+  }
+
+  .social-container {
+    width: 7vw;
+  }
+
+  .copyright,
+  .social {
+    width: 100%;
+  }
+}

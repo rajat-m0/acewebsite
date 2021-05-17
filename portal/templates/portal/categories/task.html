@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'portal/categories/style.css' %}">
+  <title>{{category.name}}</title>
+</head>
+
+<body style="background: {{category.bg_color}};">
+  <header>
+    <nav class="navbar navbar-light bg-dark-light">
+      <a class="navbar-brand mx-4" href="{% url 'portal_home' %}">
+        <img src="{% static 'portal/categories/MainACELogoWhite.svg' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+      </a>
+      <div class="ml-auto mr-4">
+        <a href="{% url 'user_logout' %}" class="btn btn-purple text-white rounded-pill px-4">
+          Logout <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main class="container px-5 py-4">
+    <h1 class="font-weight-bold py-2">{{category.name}}</h1>
+    {% for task in tasks %}
+    <div class="row d-flex align-items-stretch my-5">
+      <div class="col mx-auto mb-4">
+        <div class="bg-dark-light text-white rounded-large px-5 py-4">
+          <div class="row">
+            <div class="col-6">
+              <h2 class="m-0 font-weight-bold">{{task.get_difficulty_value_display}}</h2>
+              <p class="m-0"><small>{{task.submissions.count}} Submissions</small></p>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+              {% if task.id in submissions %}
+              <i class="fas fa-check text-success fa-2x"></i>
+              {% endif %}
+            </div>
+          </div>
+          <hr class="border-top-white">
+          <div class="row">
+            <div class="col">
+              <h3>{{task.task_name}}</h3>
+              <p class="text-justify">{{task.task_description|safe}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <form action="{% url 'submit_task' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type='hidden' name='task_id' value='{{task.id}}' />
+                <div class="form-group">
+                  <input type="file" name="task_file" id="submission" class="form-control-file" required>
+                </div>
+                <div class="form-group mx-4">
+                  <button type="submit" class="btn btn-purple rounded-pill text-white btn-block font-weight-bold">
+                    Submit&nbsp;<i class="fas fa-arrow-circle-right"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </main>
+  <footer class="container-fluid bg-dark-light py-4">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <a href="https://fb.com/vipsace" class="btn rounded-circle text-white">
+          <i class="fab fa-facebook-square fa-2x"></i>
+        </a>
+        <a href="https://twitter.com/vips_ace" class="btn rounded-circle text-white">
+          <i class="fab fa-twitter-square fa-2x"></i>
+        </a>
+        <a href="http://github.com/ACE-VSIT" class="btn rounded-circle text-white">
+          <i class="fab fa-github-square fa-2x"></i>
+        </a>
+        <a href="http://www.instagram.com/acevips" class="btn rounded-circle text-white">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </div>
+    </div>
+    <p class="text-center m-0 font-mono">
+      &copy; <script>document.write(new Date().getFullYear())</script> VIPSACE. Made with ❤️ by ACE.
+    </p>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Categories Screen</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'portal/Categories Screen/stylesheet.css' %}" type="text/css" />
+</head>
+
+<body>
+  <div class="rules">
+    <div class="rules-container">
+      <div class="rule-wrapper">
+        <div class="title">
+          <div class="back" onclick="hideRules()">
+            <img src="{% static 'portal/Categories Screen/angle-left-solid.svg' %}" class="back-button" alt="">
+          </div>
+          <div class="rul">Rules</div>
+        </div>
+        <hr>
+        <div class="list">
+          <ul>
+            <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iste fugit impedit iure quod! Incidunt sit quisquam optio amet </li>
+            <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iste fugit impedit iure quod! Incidunt sit quisquam optio amet </li>
+            <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iste fugit impedit iure quod! Incidunt sit quisquam optio amet </li>
+            <li> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero iste fugit impedit iure quod! Incidunt sit quisquam optio amet </li>
+            </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header>
+    <h1>
+      <strong>Tasks Categories</strong>
+      <button class="button" id="ruleTrigger">
+        <a href="#">Rules</a>
+      </button>
+    </h1>
+    <h3 class="h">
+      Complete the task(s) that meet your required skills
+    </h3>
+    <h3 class="h">
+      Each category have 3 levels of problems - easy, medium, hard
+    </h3>
+  </header>
+  <main class="container">{% csrf_token %}
+    {% for category in categories %}
+    <a href="{% url 'tasks_list' category.id %}">
+      <div class="t{{category.id}} box ">
+        <img src="{{category.image.url}}" {% if category.id == 1 %} class="small" {% elif category.id == 8 %} class="center" {% endif %} alt="{{category.name}}" />
+        <p class="pa{{category.id}} p">{{category.name}}</p>
+      </div>
+    </a>
+    {% endfor %}
+    <!-- <a href="#">
+      <div class="t1 box ">
+        <img src="BGPics/Programming.png" class="small" alt="Programming" />
+        <p class="pa1 p">llllll</p>
+      </div>
+    </a> -->
+    <!--
+<a href="#">
+  <div class="t2 box ">
+    <img src="BGPics/UIUX.png" alt="UI/UX Designing" />
+    <p class="pa2 p">Ui/UX Designing</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t3 box ">
+    <img src="BGPics/GraphicDesign.png" alt="Graphic Designing" />
+    <p class="pa3 p">Graphic Designing</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t4 box ">
+    <img src="BGPics/AudioVisual.png" alt="Audio/Visual" />
+    <p class="pa4 p">Audio / Visual</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t5 box ">
+    <img src="BGPics/Web%20Development.png" alt="Web Development" />
+    <p class="pa5 p">Web Development</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t6 box ">
+    <img src="BGPics/Letterhead%20&%20Pen%20Mockup.png" alt="Content Writing" />
+    <p class="pa6 p">Content Writing</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t7 box ">
+    <img src="BGPics/DigitalMarketing.png" alt="Digital Marketing" />
+    <p class="pa7 p">Digital Marketing</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t8 box ">
+    <img src="BGPics/Game%20Development.png" class="center" alt="Game Development" />
+    <p class="pa8 p">Game Development</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t9 box ">
+    <img src="BGPics/Mobile%20Development.png" alt="Mobile Development" />
+    <p class="pa9 p">Mobile Development</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t10 box ">
+    <img src="BGPics/Security.png" alt="Security" />
+    <p class="pa10 p">Security</p>
+  </div>
+</a>
+<a href="#">
+  <div class="t11 box ">
+    <img src="BGPics/Misc.png" alt="Miscellaneous" />
+    <p class="pa11 p">Miscellaneous</p>
+  </div>
+</a> -->
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="{% static 'portal/Categories Screen/main.js' %}"></script>
+</body>
+
+</html>

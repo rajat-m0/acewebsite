@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="shortcut icon" href="#" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'portal/css/taskcountdown.css' %}"/>
+    <title>ACE Portal - Tasks</title>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="container" >
+        <img src="{% static 'portal/images/Clock.svg' %}" alt="Clock" class="clock"/>
+        <div class="item-container1">
+          <div class="sub-container1">
+            <img src="{% static 'portal/images/MainACELogo.svg' %}" alt="MainACELogo" class="main-ace-logo"/>
+            <span class="title" style="margin-left: 1.5rem;" id="main-title">
+              <strong>Selection</strong>
+            </span >
+          </div>
+          <div class="sub-container1 result">
+            <span class="title">Results in...</span>
+          </div>
+        </div>
+        <div class="item-container2">
+          <div class="sub-container2">
+            <div class="timer subheader">
+              <strong>-</strong>
+            </div>
+            <div class="body sub">Days</div>
+          </div>
+          <div class="sub-container2">
+            <div class="timer subheader">
+              <strong>-</strong>
+            </div>
+            <div class="body sub">Hours</div>
+          </div>
+          <div class="sub-container2">
+            <div class="timer subheader">
+              <strong>-</strong>
+            </div>
+            <div class="body sub">Minutes</div>
+          </div>
+        </div>
+      </div>
+      <div class="container" id="logo">
+        <img src="{% static 'portal/images/MainLogoBack.svg' %}" alt="MainLogoWaveTop" class="main-logo"/>
+        <img src="{% static 'portal/images/ACEIcon.svg' %}" alt="ACEIcon" class="ACEIcon"/>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="{% static 'portal/js/taskcountdown.js' %}" data-start_date="{{ SELECTION_RESULT_DATE|date:'r' }}" id="script-data"></script>
+  </body>
+
+</html>

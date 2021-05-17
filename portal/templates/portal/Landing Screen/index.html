@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>ACE Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <!-- <script src="https://kit.fontawesome.com/0e88b83198.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'portal/Landing Screen/stylesheet.css' %}" type="text/css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <img src="{% static 'portal/Landing Screen/media/SVG/Path 1.svg' %}" alt="Path" class="path " />
+    <img src="{% static 'portal/Landing Screen/media/SVG/BottomDesign.svg' %}" alt="BottomDesign" id="bottomDesign" class="bottom" />
+    <div class="container">
+      <div class="left">
+        <div class="up">
+          <h1><img src="{% static 'portal/Landing Screen/media/SVG/TopLogo.svg' %}" class="small"><br>Selection Portal</h1>
+          <h2><strong>It all starts from here.</strong></h2>
+        </div>
+        <a href="{% url 'user_login' %}">
+          <button class="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Get Started &nbsp;
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </a>
+      </div>
+      <div class="right">
+        <img src="{% static 'portal/Landing Screen/media/SVG/MainLogoBack.svg' %}" alt="" class="back">
+        <img src="{% static 'portal/Landing Screen/media/SVG/ACEIcon.svg' %}" alt="" class="big">
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="{% static 'portal/Landing Screen/main.js' %}"></script>
+</body>
+
+</html>

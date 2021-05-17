@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'portal/categories/style.css' %}">
+    <style>
+      ul {
+        list-style: none;
+      }
+    </style>
+
+    <title>Selection Results</title>
+  </head>
+
+  <body class="bg-gradient">
+    <header>
+      <nav class="navbar navbar-light bg-dark-light">
+        <a class="navbar-brand mx-4" href="#">
+          <img
+            src="{% static 'portal/categories/MainACELogoWhite.svg' %}"
+            width="60"
+            height="60"
+            class="d-inline-block align-top"
+            alt=""
+          />
+        </a>
+        <div class="ml-auto mr-4">
+          <a href="#" class="btn btn-purple text-white rounded-pill px-4">
+            Logout <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="container p-4">
+      <h1 class="text-white text-center font-weight-bold text-success">
+        Congratulations!
+      </h1>
+      <h3 class="text-center">
+        These Students are Selected for Interview:-
+      </h3>
+      <div class="container text-center mt-4">
+        <p>
+          Interview Details:-
+        </p>
+        <ul class="list-group">
+          <li>
+            Date - 17<sup>th</sup> April 2021 to 18<sup>th</sup>April 2021
+          </li>
+          <li>Venue - Google Meet</li>
+          <li>Timings - 12:00PM - 2:00PM</li>
+          <li><a href="https://chat.whatsapp.com/JSCRXDf8dPh18eJcowVHSe">Join Whatsapp Group for Live Updates</a></li>
+        </ul>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <table class="table table-responsive text-white mt-5 mx-auto">
+            <thead>
+              <th>S. no.</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Class & Section</th>
+            </thead>
+            <tbody>
+              {% for profile in profiles %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{profile.name}}</td>
+                <td>{{profile.get_course_display}}</td>
+                <td>{{profile.get_section_display}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container-fluid bg-dark-light py-4">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+          <a
+            href="https://www.facebook.com/vipsace/"
+            class="btn rounded-circle text-white"
+          >
+            <i class="fab fa-facebook-square fa-2x"></i>
+          </a>
+          <a
+            href="https://twitter.com/vips_ace"
+            class="btn rounded-circle text-white"
+          >
+            <i class="fab fa-twitter-square fa-2x"></i>
+          </a>
+          <a
+            href="https://github.com/orgs/ACE-VSIT"
+            class="btn rounded-circle text-white"
+          >
+            <i class="fab fa-github-square fa-2x"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/acevips/"
+            class="btn rounded-circle text-white"
+          >
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+        </div>
+      </div>
+      <p class="text-center m-0 font-mono">
+        &copy; 2021 VIPSACE. Made with ❤ by ACE.
+      </p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

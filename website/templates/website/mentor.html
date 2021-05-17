@@ -1,0 +1,70 @@
+{% extends 'website/base.html' %}
+{% load staticfiles %}
+{% block title %}ACE Mentors{% endblock %}
+{% block content %}
+
+    <section class="team-section large-section" style="background-image: url('{% static 'website/img/assets/inspiration-geometry.png'%}')">
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <h2 class="section-title text-center title-divider"
+                        data-bigletter="O" data-aos="fade-up"
+                        data-aos-delay="100"
+                        data-aos-anchor-placement="top-bottom"
+                        data-aos-easing="ease-in-out"
+                        data-aos-duration="700">Our Mentors</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container" align="center">
+            <div class="row team-main">
+                {% for mentor in mentors %}
+                    <div class="col-lg-4 col-centered" align="center">
+                        <div class="team-content" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="top-bottom" data-aos-easing="ease-in-out" data-aos-duration="700">
+                            <div class="member-wrapper">
+                                <div class="img-wrapper">
+                                    <img src="{{ mentor.profile.picture.url }}" alt="" class="img-fluid">
+                                </div>
+                                <div class="member-description">
+                                    <div class="content-wrapper d-flex justify-content-center align-items-end">
+                                        <div class="content d-flex flex-column align-items-center justify-content-end">
+                                            <h6 class="name">{{ mentor.profile.name }}</h6>
+                                            <p class="position">{{ mentor.designation }}</p>
+                                            <div class="social-wrapper d-flex">
+                                                {% if mentor.github %}
+                                                <a class="social-box" href="{{ mentor.profile.github }}"><i class="fab fa-github"></i></a>
+                                                {% endif %}
+                                                {% if mentor.behance %}
+                                                <a class="social-box" href="{{ mentor.profile.behance }}"><i class="fab fa-behance"></i></a>
+                                                {% endif %}
+                                                {% if mentor.website %}
+                                                <a class="social-box" href="{{ mentor.profile.website }}"><i class="fab fa-user-circle"></i></a>
+                                                {% endif %}
+                                                {% if mentor.linkedin %}
+                                                <a class="social-box" href="{{ mentor.profile.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                                                {% endif %}                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="col-lg-12 col-centered" align="center" style="padding-top:70px" >
+                        <a href="{% url 'mentors' %}" class="button-submit z-index-100"
+                   data-aos="fade-down"
+                   data-aos-delay="1300"
+                   data-aos-easing="ease-in-out"
+                   data-aos-duration="700">Mentors</a>
+                        <a href="{% url 'members' %}" class="button-submit z-index-100"
+                           data-aos="fade-down"
+                           data-aos-delay="1300"
+                           data-aos-easing="ease-in-out"
+                           data-aos-duration="700">MEMBERS</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

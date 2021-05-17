@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <script src="https://kit.fontawesome.com/24fb7dfcf9.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/signup.css' %}" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <title>Signup</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <script src="{% static 'users/js/signup.js' %}"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="wrapper">
+        <div class="title">
+          <div class="heading">Details</div>
+          <div class="subhead">Please tell us who you are</div>
+        </div>
+        <div class="container">
+          <form action="" method="POST" class="form-container">
+            {% csrf_token %}
+            <div class="form-item-1">
+              <div class="fname com">
+                {% if errors.first_name %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail">{{errors.first_name}}</span>
+                </div>
+                {% endif %}
+                <div class="input">
+                  <input
+                    type="text"
+                    class="finput"
+                    name="first_name"
+                    placeholder="First Name"
+                    oninput="higlight(this.value)"
+                    onfocus="addTopPlaceholder(this.placeholder, this.value)"
+                    onblur="removeTopPlaceholder(this.value)"
+                  />
+                  <span></span>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-signature"></i>
+                </div>
+              </div>
+              <div class="lname com">
+                {% if errors.last_name %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail">{{errors.last_name}}</span>
+                </div>
+                {% endif %}
+                <div class="input">
+                  <input
+                    type="text"
+                    class="finput"
+                    name="last_name"
+                    placeholder="Last Name"
+                    oninput="higlight(this.value)"
+                    onfocus="addTopPlaceholder(this.placeholder, this.value)"
+                    onblur="removeTopPlaceholder(this.value)"
+                  />
+                  <span></span>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-signature"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-item-2">
+              <div class="email com">
+                {% if errors.email %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail">{{errors.email}}</span>
+                </div>
+                {% endif %}
+                <div class="input">
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    name="email"
+                    required="required"
+                    class="finput"
+                    oninput="higlight(this.value)"
+                    onfocus="addTopPlaceholder(this.placeholder, this.value)"
+                    onblur="removeTopPlaceholder(this.value)"
+                  />
+                  <span></span>
+                </div>
+                <div class="icon" style="justify-content: flex-end; width: 8vw">
+                  <i class="fa fa-envelope"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-item-3">
+              <div class="item-wrapper">
+                <div class="contact com">
+                  {% if errors.phone %}
+                  <div class="info tooltipemail">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span class="tooltiptextemail">{{errors.phone}}</span>
+                  </div>
+                  {% endif %}
+                  <div class="input">
+                    <input
+                      type="tel"
+                      placeholder="Contact Number"
+                      name="phone"
+                      required="required"
+                      maxlength="10"
+                      class="finput"
+                      oninput="higlight(this.value)"
+                      onfocus="addTopPlaceholder(this.placeholder, this.value)"
+                      onblur="removeTopPlaceholder(this.value)"
+                    />
+                    <span></span>
+                  </div>
+                  <div class="icon">
+                    <i class="fa fa-mobile-phone"></i>
+                  </div>
+                </div>
+                <div class="dob com">
+                  {% if errors.dob %}
+                  <div class="info tooltipemail">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span class="tooltiptextemail">{{errors.dob}}</span>
+                  </div>
+                  {% endif %}
+                  <div class="input">
+                    <input
+                      type="date"
+                      placeholder="DOB"
+                      name="dob"
+                      required="required"
+                      class="finput"
+                      onfocus="addTopPlaceholderDate(this.placeholder, this.value)"
+                      onblur="removeTopPlaceholderDate(this.value)"
+                      oninput="higlight(this.value)"
+                    />
+                    <span></span>
+                    <i class="fas fa-angle-down"></i>
+                  </div>
+                  <div class="icon" style="justify-content: flex-end">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-item-4">
+              <div class="course com">
+                {% if errors.course %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail">{{errors.course}}</span>
+                </div>
+                {% endif %}
+                <div class="input">
+                  <select
+                    class="fdropdown"
+                    style="cursor: pointer"
+                    name="course"
+                    onmousedown="addPlaceHolderSelect()"
+                    onchange="selectChanged()"
+                    onmouseout="removePlaceHolderSelect('outside')"
+                  >
+                    <option value="0">Course</option>
+                    <option value="1">BCA</option>
+                    <option value="2">MCA</option>
+                    <option value="3">Other</option>
+                  </select>
+                  <span></span>
+                  <i class="fas fa-angle-down course-sel"></i>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-book-open"></i>
+                </div>
+              </div>
+              <div class="class com">
+                {% if errors.section %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail">{{errors.section}}</span>
+                </div>
+                {% endif %}
+                <div class="input">
+                  <select
+                    class="fdropdown"
+                    style="cursor: pointer"
+                    name="section"
+                    onmousedown="addPlaceHolderSelect()"
+                    onchange="selectChanged()"
+                    onmouseout="removePlaceHolderSelect('outside')"
+                  >
+                    <option value="0">Class</option>
+                    <option value="1">1A</option>
+                    <option value="2">1B</option>
+                    <option value="3">1C</option>
+                    <option value="4">1D</option>
+                    <option value="5">1EA</option>
+                    <option value="6">1EB</option>
+                    <option value="7">3A</option>
+                    <option value="8">3B</option>
+                    <option value="9">3C</option>
+                    <option value="10">3D</option>
+                    <option value="11">3EA</option>
+                    <option value="12">3EB</option>
+                    <option value="13">5A</option>
+                    <option value="14">5B</option>
+                    <option value="15">5C</option>
+                    <option value="16">5D</option>
+                    <option value="17">5EA</option>
+                    <option value="18">5EB</option>
+                    <option value="19">Other</option>
+                  </select>
+                  <span></span>
+                  <i class="fas fa-angle-down class-sel"></i>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+              </div>
+              <div class="enroll com">
+                {% if errors.enrollment_number %}
+                <div class="info tooltipemail">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <span class="tooltiptextemail"
+                    >{{errors.enrollment_number}}</span
+                  >
+                </div>
+                {% endif %}
+                <div class="info tooltip">
+                  <i
+                    class="fas fa-info-circle"
+                    onmouseover="showToolTipText()"
+                    onmouseout="hideToolTipText()"
+                  ></i>
+                  <span class="tooltiptext">Optional</span>
+                </div>
+                <div class="input" style="width: 80%">
+                  <input
+                    type="number"
+                    placeholder="Enrollment Number (Optional)"
+                    name="enrollment_number"
+                    class="finput"
+                    oninput="higlight(this.value)"
+                    onfocus="addTopPlaceholder(this.placeholder, this.value)"
+                    onblur="removeTopPlaceholder(this.value)"
+                  />
+                  <span></span>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-list-ol"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form-item-5" style="justify-content: center">
+              <div class="button">
+                <button class="btn">
+                  <span> Submit</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

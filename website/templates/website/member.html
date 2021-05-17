@@ -1,0 +1,35 @@
+{% extends 'website/base.html' %}
+{% load staticfiles %}
+{% block title %}ACE Members{% endblock %}
+{% block content %}
+    <header class="page-header parallax-window bg_img default_overlay"
+            data-src="{% static 'website/img/assets/bg.jpg' %}">
+        <div class="container breadcrumbs-wrapper">
+            <div class="breadcrumbs d-flex flex-column justsify-content-center">
+                <h3>ACE Members</h3>
+            </div>
+        </div>
+    </header>
+
+    <section class="element-section white-section">
+
+        <div class="container">
+            <h6 class="black-element-title element-title">Member List for year 2019-20</h6>
+            <table class="table-type-1 table-element">
+                <tr>
+                    <td>#</td>
+                    <td>Member Name</td>
+                    <td>Course</td>
+                </tr>
+                {% for member in members%}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ member.user.first_name}} {{ member.user.last_name}}</td>
+                    <td>{{ member.get_course_display }}</td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </section>
+{% endblock %}

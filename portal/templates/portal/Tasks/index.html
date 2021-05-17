@@ -1,0 +1,497 @@
+{% load static %}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html lang="en">
+<<<<<<< HEAD <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="#" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <script defer src="{% static 'portal/tasks/js/app.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'portal/tasks/css/style.css' %}" />
+  </head>
+  <!-- <body>
+  <main class="wrapper">
+    <section class="background img-container" style="background-color:{{ category.bg_color }}">
+      <img id="bgImg" src="{{ category.image.url }}" />
+      <header class="header">
+        <div class="logo">
+          <img src="{% static 'portal/tasks/images/MainACELogoWhite.svg' %}" alt="MainACELogoWhite" />
+        </div>
+        <div class="logout">
+          <a href="{% url 'user_logout' %}">
+            <div class="logout-btn">
+              Logout<i class="fas fa-sign-out-alt"></i>
+            </div>
+          </a>
+        </div>
+      </header>
+      <div class="content">
+        <div class="heading">
+          <p class="task-heading">{{ category.name }}</p>
+        </div>
+        <div class="task-container" id="taskcontainer">
+          {% for task in tasks %}
+          <div class="task">
+            <div class="card-container" id="task{{ task.difficulty_value }}">
+              <div class="title title-container">
+                <div class="duh">{{ task.difficulty_value }}</div>
+                <div class="checked-btn-container">
+                  <div class="checked-btn" id="btn1">
+                    <i class="far fa-check-circle"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="largebody largebody-container">
+                {{ task.task_name }}
+              </div>
+              <div class="body body-container">
+                {{ task.task_description }}
+              </div>
+              <div class="submission">
+                <div class="submission-container-openfolder">
+                  <div class="openfolder" onclick="showTaskExtended('task')">
+                    <i class="fas fa-folder-open"></i>
+                  </div>
+                </div>
+                <div class="submission-container-btn">
+                  <button class="btn" onclick="uploadFiles()">
+                    <span>
+                      Submit
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="task">
+                                <div class="title title-container">
+                                    <div class="duh">{{ task.difficulty_value }}</div>
+                                    <div class="checked-btn-container">
+                                        <div class="checked-btn" id="btn1">
+                                            <i class="far fa-check-circle"></i>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="largebody largebody-container">
+                                    {{ task.task_name }}
+                                </div>
+
+                                <div class="body body-container">
+                                    {{ task.task_description|safe }}
+                                </div>
+
+                                <div class="submission">
+                                    <div class="submission-container-openfolder">
+                                        <div class="openfolder" onclick="showTaskExtended('task')">
+                                            <i class="fas fa-folder-open"></i>
+                                        </div>
+                                    </div>
+                                    <div class="submission-container-btn">
+                                        <button class="btn" onclick="uploadFiles()" >
+                                            <span>
+                                                Submit
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <!-- <div class="task">
+                            <div class="card-container" id="taskeasy">
+                                <div class="title title-container">
+                                    <div class="duh">Easy</div>
+                                    <div class="checked-btn-container">
+                                        <div class="checked-btn" id="btn1">
+                                            <i class="far fa-check-circle"></i>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="largebody largebody-container">
+                                    Ideal Transaction Problem
+                                </div>
+                                <div class="body body-container">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ipsa harum, architecto
+                                    recusandae natus repudiandae fuga fugit
+                                    veritatis eius. Sed blanditiis nesciunt iste
+                                    cum. Laborum libero eum aliquid dolorem
+                                    temporibus quaerat.Lorem ipsum dolor sit
+                                    amet consectetur adipisicing elit.
+                                </div>
+                                <div class="submission">
+                                    <div
+                                        class="submission-container-openfolder"
+                                    >
+                                        <div
+                                            class="openfolder"
+                                            onclick="showTaskExtended('task')"
+                                        >
+                                            <i class="fas fa-folder-open"></i>
+                                        </div>
+                                    </div>
+                                    <div class="submission-container-btn">
+                                        <button
+                                            class="btn"
+                                            onclick="uploadFiles()"
+                                        >
+                                            <span>
+                                                Submit
+                                                <i
+                                                    class="fas fa-arrow-right"
+                                                ></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task middle">
+                            <div class="card-container" id="taskmedium">
+                                <div class="title title-container">
+                                    <div class="duh">Medium</div>
+                                    <div class="checked-btn-container">
+                                        <div class="checked-btn" id="btn2">
+                                            <i class="far fa-check-circle"></i>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="largebody largebody-container">
+                                    Ideal Transaction Problem
+                                </div>
+                                <div class="body body-container">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ipsa harum, architecto
+                                    recusandae natus repudiandae fuga fugit
+                                    veritatis eius. Sed blanditiis nesciunt iste
+                                    cum. Laborum libero eum aliquid dolorem
+                                    temporibus quaerat.Lorem ipsum dolor sit
+                                    amet consectetur adipisicing elit. Ipsa
+                                    harum, architecto recusandae natus
+                                    repudiandae fuga fugit veritatis eius. Sed
+                                    blanditiis nesciunt iste cum. Laborum libero
+                                    eum aliquid dolorem temporibus quaerat.Lorem
+                                    ipsum dolor sit amet consectetur adipisicing
+                                    elit. Ipsa harum, architecto recusandae
+                                    natus repudiandae fuga fugit veritatis eius.
+                                    Sed blanditiis nesciunt iste cum. Laborum
+                                    libero eum aliquid dolorem temporibus
+                                    quaerat.Ipsa harum, architecto recusandae
+                                    natus repudiandae fuga fugit veritatis eius.
+                                </div>
+                                <div class="submission">
+                                    <div
+                                        class="submission-container-openfolder"
+                                    >
+                                        <div
+                                            class="openfolder"
+                                            onclick="showTaskExtended('task')"
+                                        >
+                                            <i class="fas fa-folder-open"></i>
+                                        </div>
+                                    </div>
+                                    <div class="submission-container-btn">
+                                        <button
+                                            class="btn"
+                                            onclick="uploadFiles()"
+                                        >
+                                            <span>
+                                                Submit
+                                                <i
+                                                    class="fas fa-arrow-right"
+                                                ></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task">
+                            <div class="card-container" id="taskhard">
+                                <div class="title title-container">
+                                    <div class="duh">Hard</div>
+                                    <div class="checked-btn-container">
+                                        <div class="checked-btn" id="btn3">
+                                            <i class="far fa-check-circle"></i>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="largebody largebody-container">
+                                    Ideal Transaction Problem
+                                </div>
+                                <div class="body body-container">
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ipsa harum, architecto
+                                    recusandae natus repudiandae fuga fugit
+                                    veritatis eius.
+                                </div>
+                                <div class="submission">
+                                    <div
+                                        class="submission-container-openfolder"
+                                    >
+                                        <div
+                                            class="openfolder"
+                                            onclick="showTaskExtended('task')"
+                                        >
+                                            <i class="fas fa-folder-open"></i>
+                                        </div>
+                                    </div>
+                                    <div class="submission-container-btn">
+                                        <button
+                                            class="btn"
+                                            onclick="uploadFiles()"
+                                        >
+                                            <span>
+                                                Submit
+                                                <i
+                                                    class="fas fa-arrow-right"
+                                                ></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="social">
+          <div class="social-container">
+            <a href="https://www.facebook.com/vipsace">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+          <div class="social-container">
+            <a href="https://twitter.com/VIPS_ACE">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+          <div class="social-container">
+            <a href="https://github.com/ace-vsit">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="social-container">
+            <a href="https://www.instagram.com/acevips/">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+        <div class="copyright">
+          <p id="f-text">
+            © 2019 VIPSACE. Made with ❤️ by ACE.
+          </p>
+        </div>
+      </footer>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://kit.fontawesome.com/24fb7dfcf9.js"></script>
+</body> -->
+  <!-- Updated Body -->
+
+  <body>
+    <main class="wrapper">
+      <section class="background img-container">
+        <img id="bgImg" src="{{category.image.url}}" />
+        <header class="header">
+          <div class="logo">
+            <img src="{% static 'portal/images/MainACELogo.svg' %}" alt="MainACELogoWhite" />
+          </div>
+          <div class="logout">
+            <div class="logout-btn">
+              Logout<i class="fas fa-sign-out-alt"></i>
+            </div>
+          </div>
+        </header>
+        <div class="content">
+          <div class="heading">
+            <p class="task-heading">{{tasks.task_name}} Audio / Visual</p>
+          </div>
+          <div class="task-container" id="taskcontainer">
+            {% for task in tasks %}
+            <div class="task {% if forloop.counter|mod:3 == 2 %}middle{% endif %}">
+              <div class="card-container" id="taskeasy">
+                <div class="title title-container">
+                  <div class="duh">{{task.difficulty_value}}</div>
+                  <div class="checked-btn-container">
+                    <div class="checked-btn" id="btn1">
+                      <i class="far fa-check-circle"></i>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <hr />
+                <div class="largebody largebody-container">
+                  {{task.task_name}}
+                </div>
+                <div class="body body-container">
+                  {{task.task_description|safe}}
+                </div>
+                <div class="submission">
+                  <div class="submission-container-openfolder">
+                    <div class="openfolder" onclick="showTaskExtended('task')">
+                      <i class="fas fa-folder-open"></i>
+                    </div>
+                  </div>
+                  <div class="submission-container-btn">
+                    <button class="btn" onclick="uploadFiles()">
+                      <span>
+                        Submit
+                        <i class="fas fa-arrow-right"></i>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="task middle">
+            <div class="card-container" id="taskmedium">
+              <div class="title title-container">
+                <div class="duh">Medium</div>
+                <div class="checked-btn-container">
+                  <div class="checked-btn" id="btn2">
+                    <i class="far fa-check-circle"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="largebody largebody-container">
+                Ideal Transaction Problem
+              </div>
+              <div class="body body-container">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsa harum, architecto
+                recusandae natus repudiandae fuga fugit
+                veritatis eius. Sed blanditiis nesciunt iste
+                cum. Laborum libero eum aliquid dolorem
+                temporibus quaerat.Lorem ipsum dolor sit
+                amet consectetur adipisicing elit. Ipsa
+                harum, architecto recusandae natus
+                repudiandae fuga fugit veritatis eius. Sed
+                blanditiis nesciunt iste cum. Laborum libero
+                eum aliquid dolorem temporibus quaerat.Lorem
+                ipsum dolor sit amet consectetur adipisicing
+                elit. Ipsa harum, architecto recusandae
+                natus repudiandae fuga fugit veritatis eius.
+                Sed blanditiis nesciunt iste cum. Laborum
+                libero eum aliquid dolorem temporibus
+                quaerat.Ipsa harum, architecto recusandae
+                natus repudiandae fuga fugit veritatis eius.
+              </div>
+              <div class="submission">
+                <div class="submission-container-openfolder">
+                  <div class="openfolder" onclick="showTaskExtended('task')">
+                    <i class="fas fa-folder-open"></i>
+                  </div>
+                </div>
+                <div class="submission-container-btn">
+                  <button class="btn" onclick="uploadFiles()">
+                    <span>
+                      Submit
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="task">
+            <div class="card-container" id="taskhard">
+              <div class="title title-container">
+                <div class="duh">Hard</div>
+                <div class="checked-btn-container">
+                  <div class="checked-btn" id="btn3">
+                    <i class="far fa-check-circle"></i>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <div class="largebody largebody-container">
+                Ideal Transaction Problem
+              </div>
+              <div class="body body-container">
+                Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsa harum, architecto
+                recusandae natus repudiandae fuga fugit
+                veritatis eius.
+              </div>
+              <div class="submission">
+                <div class="submission-container-openfolder">
+                  <div class="openfolder" onclick="showTaskExtended('task')">
+                    <i class="fas fa-folder-open"></i>
+                  </div>
+                </div>
+                <div class="submission-container-btn">
+                  <button class="btn" onclick="uploadFiles()">
+                    <span>
+                      Submit
+                      <i class="fas fa-arrow-right"></i>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="social">
+            <div class="social-container">
+              <a href="https://www.facebook.com/vipsace">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+            <div class="social-container">
+              <a href="https://twitter.com/VIPS_ACE">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            <div class="social-container">
+              <a href="https://github.com/ace-vsit">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="social-container">
+              <a href="https://www.instagram.com/acevips/">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="copyright">
+            <p id="f-text">
+              &copy; <script>document.write(new Date().getFullYear())</script> VIPSACE. Made with ❤️ by ACE.
+            </p>
+          </div>
+        </footer>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://kit.fontawesome.com/24fb7dfcf9.js"></script>
+  </body>
+
+</html>

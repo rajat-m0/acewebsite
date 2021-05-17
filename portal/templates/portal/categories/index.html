@@ -1,0 +1,141 @@
+{% load static %}
+{% load mathfilters %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'portal/categories/style.css' %}">
+  <title>Tasks Category</title>
+</head>
+
+<body class="bg-gradient">
+  <header>
+    <!-- ALERT SYSTEM START -->
+    {% if messages %}
+    {% for message in messages %}
+    <div class="container-fluid p-0">
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show m-0 rounded-0" role="alert">
+        {{message}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <!-- ALERT SYSTEM END -->
+    <nav class="navbar navbar-light bg-dark-light">
+      <a class="navbar-brand mx-4" href="#">
+        <img src="{% static 'portal/categories/MainACELogoWhite.svg' %}" width="60" height="60" class="d-inline-block align-top" alt="">
+      </a>
+      <div class="ml-auto mr-4">
+        <a href="{% url 'user_logout' %}" class="btn btn-purple text-white rounded-pill px-4">
+          Logout <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid px-5 py-4">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="font-weight-bold">Task Categories</h1>
+          <p class="m-0">
+            Complete the task(s) that meet your required skills
+          </p>
+          <p>
+            Each category has 3 levels of problems - Easy, Medium, Hard
+          </p>
+        </div>
+        <div class="col-md-4 d-flex align-items-center justify-content-end">
+          <button class="btn btn-purple text-white rounded-pill btn-block" data-target="#guidelinesModal" data-toggle="modal">
+            General Guidelines
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div class="modal fade text-dark" id="guidelinesModal" tabindex="-1" role="dialog" aria-labelledby="guidelinesModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-weight-bold" id="exampleModalLabel">
+            <u>General Guidelines</u>
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ol class="p-0 px-4">
+            <li>There is no limit to the number of tasks you can attempt.</li>
+            <li>You can submit a task multiple times. Only the last submission will be considered for evaluation.</li>
+            <li>Plagiarism and use of unfair means to complete the task are strictly prohibited.</li>
+            <li>We recommend you to attempt as many tasks as you can however we believe in quality over quantity.</li>
+            <li>Kindly submit the your code/solution files before the submission deadline.</li>
+            <li>In case of multiple files, compress them in a single .tar/.zip/.rar file</li>
+            <li>You can submit your programming logic in a doc file if you can not code it.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section>
+    <div class="container-fluid p-5">
+      {% for category in categories %}
+      {% if forloop.counter0|mod:3 == 0 %}
+      <div class="row d-flex align-items-stretch">
+        {% endif %}
+        <div class="col-md-3 mb-4 mx-auto">
+          <a href="{% url 'tasks_list' category.id %}">
+            <div class="text-white rounded-large px-4 py-2" style="background: {{category.bg_color}};">
+              <img src="{{category.image.url}}" class="img-fluid fixed-img d-flex ml-auto" alt="tasks image">
+              <div class="row my-4">
+                <div class="col-12">
+                  <button class="btn btn-purple btn-block text-white rounded-pill">{{category.name}}</button>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {% if forloop.counter0|mod:3 == 2 %}
+      </div>
+      {% endif %}
+      {% endfor %}
+  </section>
+  <footer class="container-fluid bg-dark-light py-4">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <a href="https://fb.com/vipsace" class="btn rounded-circle text-white">
+          <i class="fab fa-facebook-square fa-2x"></i>
+        </a>
+        <a href="https://twitter.com/vips_ace" class="btn rounded-circle text-white">
+          <i class="fab fa-twitter-square fa-2x"></i>
+        </a>
+        <a href="http://github.com/ACE-VSIT" class="btn rounded-circle text-white">
+          <i class="fab fa-github-square fa-2x"></i>
+        </a>
+        <a href="http://www.instagram.com/acevips" class="btn rounded-circle text-white">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </div>
+    </div>
+    <p class="text-center m-0 font-mono">
+      &copy; <script>document.write(new Date().getFullYear())</script> VIPSACE. Made with ❤️ by ACE.
+    </p>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

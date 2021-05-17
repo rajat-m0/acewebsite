@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" href="#" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <img
+          src="{% static 'users/images/MainLogoBack.svg' %}"
+          alt="MainLogoWaveTop"
+          class="main-logo"
+        />
+        <img
+          src="{% static 'users/images/ACEIcon.svg' %}"
+          alt="ACEIcon"
+          id="ACEIcon"
+        />
+      </div>
+      <div class="container" id="login-container">
+        <div class="login">
+          <p class="title" id="title">Login</p>
+          <div
+            class="btn-fbook"
+            id="btn-fbook"
+            onclick="animateFacebookButton()"
+          >
+            <a href="{% url 'social:begin' 'facebook' %}">
+              <img
+                src="{% static 'users/images/Facebook Logo.svg' %}"
+                alt="FacebookLogo"
+                id="FacebookLogo"
+              />
+              <p class="button btn-text">Sign in with Facebook</p>
+            </a>
+          </div>
+          <div
+            class="btn-google"
+            id="btn-google"
+            onclick="animateGoogleButton()"
+          >
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
+              <img
+                src="{% static 'users/images/GoogleLogo.svg' %}"
+                alt="GoogleLogo"
+                id="GoogleLogo"
+              />
+              <p class="button btn-text">Sign in with Google</p>
+            </a>
+          </div>
+
+          <div
+            class="btn-linked"
+            id="btn-linked"
+            onclick="animateLinkedButton()"
+          >
+            <a href="{% url 'social:begin' 'linkedin-oauth2' %}">
+              <i class="fab fa-linkedin" id="linkedlogo"></i>
+              <p class="button btn-text">Sign in with LinkedIn</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="{% static 'users/js/login.js' %}" defer></script>
+  </body>
+</html>
