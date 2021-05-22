@@ -16,16 +16,15 @@ import os
 import dj_database_url
 import raven
 from django.utils.timezone import get_current_timezone
-from dotenv import load_dotenv
 
-tz = get_current_timezone()
+from dotenv import load_dotenv
 load_dotenv()
+
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-SECRET_KEY = os.environ.get('SECRET_KEY', os.environ.get('SECRET_KEY'))
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get('DEBUG', 'false')).lower() != 'false'
@@ -106,7 +105,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.linkedin.LinkedinOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -148,6 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/')
 
 
 # ACE Portal
+tz = get_current_timezone()
 SELECTION_START_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_START_DATE'), "%d/%m/%Y"))
 SELECTION_END_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_END_DATE'), "%d/%m/%Y %H:%M:%S"))
 SELECTION_RESULT_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_RESULT_DATE'), "%d/%m/%Y %H:%M:%S"))
@@ -205,4 +204,3 @@ if not DEBUG:
     }
     
     SOCIAL_AUTH_POSTGRES_JSONFIELD = True
-
