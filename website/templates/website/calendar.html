@@ -1,42 +1,38 @@
-{% extends 'website/base.html' %}
-{% load staticfiles %}
-{% block title %}ACE Agenda{% endblock %}
-{% block content %}
+{% extends 'website/base.html' %} {% load staticfiles %} {% block title %}ACE Agenda{% endblock %} {% block content %}
 
-    
-    <header class="page-header parallax-window bg_img default_overlay"
-            data-src="{% static 'website/img/assets/calender.jpg' %}">
-        <div class="container breadcrumbs-wrapper">
-            <div class="breadcrumbs d-flex flex-column justsify-content-center">
-                <h3>ACE Agenda 2019-20</h3>
-            </div>
+
+<header class="page-header parallax-window bg_img default_overlay" data-src="{% static 'website/img/assets/calender.jpg' %}">
+    <div class="container breadcrumbs-wrapper">
+        <div class="breadcrumbs d-flex flex-column justsify-content-center">
+            <h3>ACE Agenda 2020-21</h3>
         </div>
-    </header>
+    </div>
+</header>
 
 
 
-    <section class="element-section white-section">
+<section class="element-section white-section">
 
-        <div class="container">
-            <h6 class="black-element-title element-title">Year 2018-19</h6>
-            <table class="table-type-1 table-element">
-                <tr>
-                    <td>#</td>
-                    <td>Event Name</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>ACE Hours</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>HackVSIT</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>TEDx</td>
-                </tr>
-            </table>
-        </div>
-    </section>
+    <div class="container">
+        <h6 class="black-element-title element-title">Year 2018-19</h6>
+        <table class="table-type-1 table-element">
+            <tr>
+                <td>#</td>
+                <td>Event Name</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ACE Hours</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HackVSIT</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>TEDx</td>
+            </tr>
+        </table>
+    </div>
+</section>
 {% endblock %}
