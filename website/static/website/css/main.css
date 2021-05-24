@@ -10706,11 +10706,11 @@ button:focus, input:focus {
           justify-content: center; }
           .navbar .navbar-inner .navbar-menu .navbar-additional .social-box a {
             color: #fff;
-            font-size: 13px;
+            font-size: 16px;
             -webkit-transition: all .3s ease-in-out;
             transition: all .3s ease-in-out; }
           .navbar .navbar-inner .navbar-menu .navbar-additional .social-box a:hover {
-            color: #dcdcdc; }
+            color: #dcdcdc;}
         .navbar .navbar-inner .navbar-menu .navbar-additional .social-box:not(:last-child) {
           margin-right: 25px; }
           @media (max-width: 1199px) {
