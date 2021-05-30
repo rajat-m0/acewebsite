@@ -10010,7 +10010,7 @@ button:focus, input:focus {
   position: fixed;
   border-bottom: 1px solid rgba(236, 236, 236, 0.2);
   -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out; }
+  transition: all .3s ease-in-out;}
   .navbar-default .navbar-inner .navbar-menu .navbar-menu-list li a {
     color: #fff;
     font-weight: 400;
