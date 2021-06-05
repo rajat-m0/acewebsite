@@ -163,28 +163,13 @@ body {
 .main-logo {
   position: absolute;
   height: 0;
-  filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
-  animation: main-logo-animation infinite 3s;
-}
-
-@keyframes main-logo-animation {
-  0% {
-    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
-  }
-  50% {
-    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(200deg) brightness(100%) contrast(100%);
-  }
-  100% {
-    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
-  }
 }
 
 .login {
   border-radius: 3rem;
   width: 35rem;
   height: 34rem;
-  background: rgb(0,119,181);
-  background: linear-gradient(45deg, rgba(0,119,181,0.2) 0%, rgba(255,102,159,0.2) 100%);
+  background-color: rgba(255, 255, 255, 0.1);
   color: #ffffff;
   position: relative;
 }
