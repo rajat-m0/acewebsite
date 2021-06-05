@@ -473,11 +473,13 @@
             </div>
             <div class="row blog-wrapper">
                 {% for event in events  %}
-                <div class="col-lg-4">
-                    <div class="blog-card-wrapper hover3d-wrapper" data-aos="fade-right" data-aos-delay="100"
+                <div class="col-lg-4 d-flex align-items-stretch">
+                    <div class="blog-card-wrapper hover3d-wrapper w-100" 
+                        data-aos="fade-right" 
+                        data-aos-delay="100"
                          data-aos-anchor-placement="top-bottom"
                          data-aos-easing="ease-in-out" data-aos-duration="600">
-                        <div class="card-content hover3d-child">
+                        <div class="card-content hover3d-child d-flex flex-column">
                             <div class="card-blog-header">
                                 <div class="img-wrapper d-flex align-items-center justify-content-center">
                                     <a href="#">
@@ -486,9 +488,9 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="card-blog-body">
+                            <div class="card-blog-body d-flex flex-column h-100">
                                 <h5><a href="#">{{event.name}}</a></h5>
-                                <p class="content">{{event.description}}<a href="#">[...]</a></p>
+                                <p class="content h-100">{{event.description}}<a href="#">[...]</a></p>
                                 <div class="card-blog-footer d-flex justify-content-between align-items-end">
                                     <p class="date d-flex align-items-end">
                                        <i class="fas fa-calendar-alt"></i>
@@ -539,4 +541,3 @@
         </div>
     </section>
 {% endblock %}
-
