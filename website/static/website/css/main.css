@@ -9915,7 +9915,10 @@ iframe {
 .wrapper-hidden {
   -webkit-transition: all 1.2s ease-in-out;
   transition: all 1.2s ease-in-out;
-  opacity: 0.5; }
+  opacity: 0.5; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
 
 section {
   position: relative;
@@ -13207,6 +13210,7 @@ footer .footer-inner {
           color: #fff; }
 
 .recent-posts {
+  flex:1;
   background-position: center;
   background-repeat: repeat;
   -webkit-box-shadow: 0 5px 5px 1px rgba(31, 31, 31, 0.02);
