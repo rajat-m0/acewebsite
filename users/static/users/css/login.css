@@ -115,11 +115,12 @@ body {
   left: 4rem;
   cursor: pointer;
   background-color:#d34836;
+  transition: all .3s ease-in-out;
 }
 
 .btn-google:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #7e0f0083);
 }
 
 .btn-fbook {
@@ -132,11 +133,12 @@ body {
   top: 9rem;
   left: 4rem;
   background-color:#3b5998;
+  transition: all .3s ease-in-out;
 }
 
 .btn-fbook:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #001e5f83);
 }
 
 
@@ -150,31 +152,47 @@ body {
   top: 23rem;
   left: 4rem;
   background-color:#0077b5;
+  transition: .3s all ease-in-out;
 }
 
 .btn-linked:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #00416483);
 }
 
 .main-logo {
   position: absolute;
   height: 0;
+  filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
+  animation: main-logo-animation infinite 3s;
+}
+
+@keyframes main-logo-animation {
+  0% {
+    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
+  }
+  50% {
+    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(200deg) brightness(100%) contrast(100%);
+  }
+  100% {
+    filter: invert(27%) sepia(51%) saturate(4000%) hue-rotate(300deg) brightness(100%) contrast(100%);
+  }
 }
 
 .login {
   border-radius: 3rem;
   width: 35rem;
   height: 34rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgb(0,119,181);
+  background: linear-gradient(45deg, rgba(0,119,181,0.2) 0%, rgba(255,102,159,0.2) 100%);
   color: #ffffff;
   position: relative;
 }
 
 #title {
-  position: absolute;
-  top: 2rem;
-  left: 4rem;
+  display: grid;
+  place-items: center;
+  padding-top: 1.75vw;
 }
 
 #ACEIcon {
@@ -187,6 +205,7 @@ body {
   height: 2rem;
   top: 1rem;
   left: 1.5rem;
+  filter: invert(1);
 }
 
 #GoogleLogo {
@@ -197,11 +216,11 @@ body {
 }
 
 #linkedlogo{
-  position: relative;
-  font-size: 2.3rem;
-  top: .9rem;
+  position: absolute;
+  height: 2rem;
+  top: 1rem;
   left: 1.5rem;
-
+  filter: invert(1);
 }
 
 .wrapper {

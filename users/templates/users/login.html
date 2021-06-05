@@ -65,7 +65,11 @@
             onclick="animateLinkedButton()"
           >
             <a href="{% url 'social:begin' 'linkedin-oauth2' %}">
-              <i class="fab fa-linkedin" id="linkedlogo"></i>
+              <img
+              src="{% static 'users/images/Linked Logo.svg' %}"
+              alt="LinkedIn Logo"
+              id="linkedlogo"
+            />
               <p class="button btn-text">Sign in with LinkedIn</p>
             </a>
           </div>
