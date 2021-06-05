@@ -361,19 +361,20 @@
                         </div>
                     </div>
                 {% endfor %}
-
-                <div class="col-lg-5 col-centered" align="center" style="padding-top: 70px;">
-                        <a href="{% url 'mentors' %}" class="button-submit z-index-100"
+            </div>
+            <div class="col-lg-5 col-centered" align="center" style="padding-top: 70px;">
+                <a href="{% url 'mentors' %}" class="button-submit z-index-100"
+                    data-aos="fade-down"
+                    data-aos-delay="1300"
+                    data-aos-easing="ease-in-out"
+                    data-aos-duration="700">Mentors
+                </a>
+                <a href="{% url 'alumnus' %}" class="button-submit z-index-100"
                    data-aos="fade-down"
                    data-aos-delay="1300"
                    data-aos-easing="ease-in-out"
-                   data-aos-duration="700">Mentors</a>
-                        <a href="{% url 'alumnus' %}" class="button-submit z-index-100"
-                           data-aos="fade-down"
-                           data-aos-delay="1300"
-                           data-aos-easing="ease-in-out"
-                           data-aos-duration="700">Alumni</a>
-                </div>
+                   data-aos-duration="700">Alumni
+                </a>
             </div>
         </div>
     </section>
