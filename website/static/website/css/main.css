@@ -10708,7 +10708,7 @@ button:focus, input:focus {
             color: #fff;
             font-size: 16px;
             -webkit-transition: all .3s ease-in-out;
-            transition: all .3s ease-in-out; }
+            transition: all .3s ease-in-out;}
           .navbar .navbar-inner .navbar-menu .navbar-additional .social-box a:hover {
             color: #dcdcdc;}
         .navbar .navbar-inner .navbar-menu .navbar-additional .social-box:not(:last-child) {
