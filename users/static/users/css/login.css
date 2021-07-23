@@ -115,11 +115,12 @@ body {
   left: 4rem;
   cursor: pointer;
   background-color:#d34836;
+  transition: all .3s ease-in-out;
 }
 
 .btn-google:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #7e0f0083);
 }
 
 .btn-fbook {
@@ -132,11 +133,12 @@ body {
   top: 9rem;
   left: 4rem;
   background-color:#3b5998;
+  transition: all .3s ease-in-out;
 }
 
 .btn-fbook:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #001e5f83);
 }
 
 
@@ -150,11 +152,12 @@ body {
   top: 23rem;
   left: 4rem;
   background-color:#0077b5;
+  transition: .3s all ease-in-out;
 }
 
 .btn-linked:hover {
   transform: translateY(-0.2rem);
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
+  filter: drop-shadow(0 .3rem .3rem #00416483);
 }
 
 .main-logo {
@@ -172,9 +175,9 @@ body {
 }
 
 #title {
-  position: absolute;
-  top: 2rem;
-  left: 4rem;
+  display: grid;
+  place-items: center;
+  padding-top: 1.75vw;
 }
 
 #ACEIcon {
@@ -187,6 +190,7 @@ body {
   height: 2rem;
   top: 1rem;
   left: 1.5rem;
+  filter: invert(1);
 }
 
 #GoogleLogo {
@@ -197,11 +201,11 @@ body {
 }
 
 #linkedlogo{
-  position: relative;
-  font-size: 2.3rem;
-  top: .9rem;
+  position: absolute;
+  height: 2rem;
+  top: 1rem;
   left: 1.5rem;
-
+  filter: invert(1);
 }
 
 .wrapper {

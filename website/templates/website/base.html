@@ -59,8 +59,40 @@
                             <a class="mobile-menu-toggle" href="/">Home</a>
                         </li>
                         <li class="menu-primary-item menu-item-has-children">
-                            <a class="mobile-menu-toggle" href="{% url 'members' %}">Members</a
-                >
+                          <a class="mobile-menu-toggle" href="{% url 'members' %}">Members</a>
+      {% block header %}
+      <nav id="nav-head" class="navbar navbar-default desktop-menu logo-left">
+        <div class="container-fluid navbar-inner">
+          <div class="navbar-logo">
+            <a
+              href="/"
+              class="logo-link d-flex align-items-center"
+              data-aos="zoom-in"
+              data-aos-delay="1000"
+              data-aos-easing="ease-in-out"
+              data-aos-duration="700"
+            >
+              <img
+                src="{% static 'website/img/logo/logo-light.png'%}"
+                alt=""
+                class="logo-img logo-light"
+              />
+              <img
+                src="{% static 'website/img/logo/logo-dark.png'%}"
+                alt=""
+                class="logo-img logo-dark"
+                style="filter: brightness(0)"
+              />
+            </a>
+          </div>
+          <div class="navbar-menu">
+            <ul class="navbar-menu-list">
+              <li class="menu-primary-item menu-item-has-children">
+                <a class="mobile-menu-toggle" href="/">Home</a>
+              </li>
+              <li class="menu-primary-item menu-item-has-children">
+                <a class="mobile-menu-toggle" href="{% url 'members' %}"
+                  >Members</a>
               </li>
               <li class="menu-primary-item menu-item-has-children">
                 <a class="mobile-menu-toggle" href="{% url 'projects' %}"
@@ -159,10 +191,16 @@
 
     {% block footer %}
     <script type="text/javascript">
+
         $(document).ready(function() {
             $("nav").addClass("navbar-fill");
             $("#footer-year-display").text(new Date().getFullYear());
         });
+
+      $(document).ready(function () {
+        $("nav").addClass("navbar-additional");
+        $("#footer-year-display").text(new Date().getFullYear());
+      });
     </script>
     {% endblock %}
 </body>
