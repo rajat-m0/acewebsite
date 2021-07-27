@@ -1,8 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -14,52 +13,45 @@
     <meta name="msapplication-TileImage" content="favicon.ico" />
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-transcluent" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-transcluent"
+    />
     <title>{%block title %}ACE{% endblock %}</title>
     <!-- IE-Support -->
     <script src="{% static 'website/js/ie-support.js'%}" defer></script>
     <!-- css-files -->
-    <link rel="stylesheet" href="{% static 'website/css/font-awesome.min.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'website/css/font-awesome.min.css'%}"
+    />
     <link rel="stylesheet" href="{% static 'website/css/swiper.min.css'%}" />
-    <link rel="stylesheet" href="{% static 'website/css/magnific-popup.css'%}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'website/css/magnific-popup.css'%}"
+    />
     <link rel="stylesheet" href="{% static 'website/css/aos.css'%}" />
     <link rel="stylesheet" href="{% static 'website/css/main.css'%}" />
+    <link rel="stylesheet" href="{% static 'website/css/archive.css'%}" />
     <link rel="manifest" href="{% static 'manifest.json'%}" />
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="loader">
-        <div class="loading-center">
-            <div class="loading-center-absolute">
-                <div class="object object_one"></div>
-                <div class="object object_two"></div>
-                <div class="object object_three"></div>
-                <div class="object object_four"></div>
-                <div class="object object_five"></div>
-                <div class="object object_six"></div>
-                <div class="object object_seven"></div>
-                <div class="object object_eight"></div>
-                <div class="object object_nine"></div>
-            </div>
+      <div class="loading-center">
+        <div class="loading-center-absolute">
+          <div class="object object_one"></div>
+          <div class="object object_two"></div>
+          <div class="object object_three"></div>
+          <div class="object object_four"></div>
+          <div class="object object_five"></div>
+          <div class="object object_six"></div>
+          <div class="object object_seven"></div>
+          <div class="object object_eight"></div>
+          <div class="object object_nine"></div>
         </div>
+      </div>
     </div>
     <div id="main-wrapper" class="wrapper-hidden z-index-100">
-        {% block header %}
-        <nav class="navbar navbar-default desktop-menu logo-left">
-            <div class="container-fluid navbar-inner">
-                <div class="navbar-logo">
-                    <a href="/" class="logo-link d-flex align-items-center" data-aos="zoom-in" data-aos-delay="1000" data-aos-easing="ease-in-out" data-aos-duration="700">
-                        <img src="{% static 'website/img/logo/logo-light.png'%}" alt="" class="logo-img logo-light" />
-                        <img src="{% static 'website/img/logo/logo-dark.png'%}" alt="" class="logo-img logo-dark" style="filter: brightness(0)" />
-                    </a>
-                </div>
-                <div class="navbar-menu">
-                    <ul class="navbar-menu-list">
-                        <li class="menu-primary-item menu-item-has-children">
-                            <a class="mobile-menu-toggle" href="/">Home</a>
-                        </li>
-                        <li class="menu-primary-item menu-item-has-children">
-                          <a class="mobile-menu-toggle" href="{% url 'members' %}">Members</a>
       {% block header %}
       <nav id="nav-head" class="navbar navbar-default desktop-menu logo-left">
         <div class="container-fluid navbar-inner">
@@ -92,7 +84,8 @@
               </li>
               <li class="menu-primary-item menu-item-has-children">
                 <a class="mobile-menu-toggle" href="{% url 'members' %}"
-                  >Members</a>
+                  >Members</a
+                >
               </li>
               <li class="menu-primary-item menu-item-has-children">
                 <a class="mobile-menu-toggle" href="{% url 'projects' %}"
@@ -114,96 +107,88 @@
                   >Achievements</a
                 >
               </li>
+              <li class="menu-primary-item menu-item-has-children">
+                <a class="mobile-menu-toggle" href="{% url 'archive' %}"
+                  >Archive</a
+                >
+              </li>
             </ul>
-            <div class="navbar-additional align-items-center" >
+            <div class="navbar-additional align-items-center">
               <div class="social-box">
-                <a href="https://www.facebook.com/vipsace"  target="blank">
+                <a href="https://www.facebook.com/vipsace">
                   <i class="fab fa-facebook-f"></i>
                 </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://twitter.com/VIPS_ACE" target="blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://www.instagram.com/acevips/" target="blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://www.linkedin.com/company/vipsace/" target="blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
+              </div>
+              <div class="social-box">
+                <a href="https://twitter.com/VIPS_ACE">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+              <div class="social-box">
+                <a href="https://www.instagram.com/acevips/">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
             </div>
-    </div>
-    <button class="hamburger justify-content-center align-items-center hamburger--spin" type="button">
+          </div>
+          <button
+            class="hamburger justify-content-center align-items-center hamburger--spin"
+            type="button"
+          >
             <span class="hamburger-box">
               <span class="hamburger-inner"></span>
             </span>
           </button>
-    </div>
-    </nav>
-    {% endblock %} {% block content %} {% endblock %}
-
-    <footer>
-        <div class="container-fluid footer-inner d-flex align-items-center">
-            <div class="footer-social d-flex">
-                <div class="social-box">
-                    <a href="https://www.facebook.com/vipsace" target="blank">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://twitter.com/VIPS_ACE" target="blank">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://github.com/ace-vsit" target="blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://www.instagram.com/acevips/" target="blank">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                <div class="social-box">
-                    <a href="https://www.linkedin.com/company/vipsace/" target="blank">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-copyright">
-                <p>
-                    © <span id="footer-year-display"></span> VIPSACE. Made with ❤️ by ACE.
-                </p>
-            </div>
         </div>
-    </footer>
+      </nav>
+      {% endblock %} {% block content %} {% endblock %}
+
+      <footer>
+        <div class="container-fluid footer-inner d-flex align-items-center">
+          <div class="footer-social d-flex">
+            <div class="social-box">
+              <a href="https://www.facebook.com/vipsace">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </div>
+            <div class="social-box">
+              <a href="https://twitter.com/VIPS_ACE">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+            <div class="social-box">
+              <a href="https://github.com/ace-vsit">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="social-box">
+              <a href="https://www.instagram.com/acevips/">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <p>
+              © <span id="footer-year-display"></span> VIPSACE. Made with ❤️ by
+              ACE.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
     <!-- js-files -->
     <script src="{% static 'website/js/dependencies.min.js'%}"></script>
     <!-- Main JS-file -->
     <script src="{% static 'website/js/main.js'%}"></script>
+    <script src="{% static 'website/js/archive.js' %}"></script>
 
     {% block footer %}
     <script type="text/javascript">
-
-        $(document).ready(function() {
-            $("nav").addClass("navbar-fill");
-            $("#footer-year-display").text(new Date().getFullYear());
-        });
-
       $(document).ready(function () {
         $("nav").addClass("navbar-additional");
         $("#footer-year-display").text(new Date().getFullYear());
       });
     </script>
     {% endblock %}
-</body>
-
+  </body>
 </html>

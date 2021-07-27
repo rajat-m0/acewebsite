@@ -8,6 +8,7 @@ urlpatterns = [
     path('events/', views.event, name='events'),
     path('projects/', views.project, name='projects'),
     path('achievements/', views.achievement, name='achievements'),
+    path('archive/', views.archive, name='archive'),
     path('calendar/', views.agenda, name='calendar'),
     path('mentors/', views.mentor, name='mentors'),
     path('alumnus/', views.alumni, name='alumnus'),
