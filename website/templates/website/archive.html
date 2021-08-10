@@ -1,0 +1,22 @@
+{% extends 'website/base.html' %}
+{% load staticfiles %}
+{% block title %}ACE Archive{% endblock %}
+{% block content %}
+<header class="page-header parallax-window bg_img default_overlay brightness-dark"
+  data-src="{% static 'website/img/assets/bg_2019.jpg' %}">
+  <div class="container breadcrumbs-wrapper">
+    <div class="breadcrumbs d-flex flex-column justsify-content-center">
+      <h3>ACE Archive</h3>
+    </div>
+  </div>
+</header>
+<section class="element-section white-section">
+  <div class="">
+    <h6 class="black-element-title element-title">ACE Hours Archive</h6>
+  <div id="box">
+    <div class="container grid-layout" id="archive">
+      <!-- Dynamic Fetching here -->
+    </div>
+  </div>
+</section>
+{% endblock %}

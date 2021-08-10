@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as auth_logout
 
-from website.models import Achievement, Event, Gallery
+from website.models import Achievement, Event, Gallery, Archive
 from users.models import Profile, Mentor, Alumni
 # from website.projectsjson import projects
 
@@ -52,6 +52,9 @@ def achievement(request):
     achievements = Achievement.objects.all()
     return render(request, template_name='website/achievement.html', context={'achievements': achievements})
 
+def archive(request):
+    archive = Archive.objects.all()
+    return render(request, template_name='website/archive.html', context={'archive': archive})
 
 def agenda(request):
     # agendas = Agenda.objects.all()
