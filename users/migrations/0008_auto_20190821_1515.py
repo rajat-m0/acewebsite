@@ -6,28 +6,36 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0007_auto_20190821_1508'),
+        ("users", "0007_auto_20190821_1508"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='profile',
-            name='facebook',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='facebook username'),
+            model_name="profile",
+            name="facebook",
+            field=models.CharField(
+                blank=True, max_length=50, null=True, verbose_name="facebook username"
+            ),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='github',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='github username'),
+            model_name="profile",
+            name="github",
+            field=models.CharField(
+                blank=True, max_length=50, null=True, verbose_name="github username"
+            ),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='insta',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='insta handle'),
+            model_name="profile",
+            name="insta",
+            field=models.CharField(
+                blank=True, max_length=50, null=True, verbose_name="insta handle"
+            ),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='linkedin',
-            field=models.CharField(blank=True, max_length=150, null=True, verbose_name='linkedin id'),
+            model_name="profile",
+            name="linkedin",
+            field=models.CharField(
+                blank=True, max_length=150, null=True, verbose_name="linkedin id"
+            ),
         ),
     ]

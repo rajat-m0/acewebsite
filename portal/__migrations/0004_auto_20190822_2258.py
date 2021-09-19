@@ -7,28 +7,32 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portal', '0003_category_tag'),
+        ("portal", "0003_category_tag"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='category',
-            name='bg_color',
+            model_name="category",
+            name="bg_color",
             field=models.CharField(blank=True, max_length=10),
         ),
         migrations.AddField(
-            model_name='category',
-            name='icon',
-            field=cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image'),
+            model_name="category",
+            name="icon",
+            field=cloudinary.models.CloudinaryField(
+                blank=True, max_length=255, null=True, verbose_name="image"
+            ),
         ),
         migrations.AddField(
-            model_name='category',
-            name='image',
-            field=cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image'),
+            model_name="category",
+            name="image",
+            field=cloudinary.models.CloudinaryField(
+                blank=True, max_length=255, null=True, verbose_name="image"
+            ),
         ),
         migrations.AddField(
-            model_name='category',
-            name='theme',
+            model_name="category",
+            name="theme",
             field=models.BooleanField(blank=True, default=False),
             preserve_default=False,
         ),

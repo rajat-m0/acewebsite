@@ -6,41 +6,49 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('portal', '0006_auto_20190822_2351'),
+        ("portal", "0006_auto_20190822_2351"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='task',
-            name='difficulty_level',
+            model_name="task",
+            name="difficulty_level",
         ),
         migrations.RemoveField(
-            model_name='task',
-            name='submission_deadline',
+            model_name="task",
+            name="submission_deadline",
         ),
         migrations.RemoveField(
-            model_name='task',
-            name='total_submissions',
+            model_name="task",
+            name="total_submissions",
         ),
         migrations.AlterField(
-            model_name='task',
-            name='task_id',
+            model_name="task",
+            name="task_id",
             field=models.CharField(max_length=20),
         ),
         migrations.AddField(
-            model_name='task',
-            name='id',
-            field=models.AutoField(auto_created=True, default=1, primary_key=True, serialize=False, verbose_name='ID'),
+            model_name="task",
+            name="id",
+            field=models.AutoField(
+                auto_created=True,
+                default=1,
+                primary_key=True,
+                serialize=False,
+                verbose_name="ID",
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='task',
-            name='difficulty_value',
-            field=models.IntegerField(choices=[(1, 'Easy'), (2, 'Medium'), (3, 'Hard')], max_length=30),
+            model_name="task",
+            name="difficulty_value",
+            field=models.IntegerField(
+                choices=[(1, "Easy"), (2, "Medium"), (3, "Hard")], max_length=30
+            ),
         ),
         migrations.AlterField(
-            model_name='submission',
-            name='task_id',
-            field=models.ForeignKey(null=False, on_delete=models.CASCADE, to='task.id'),
+            model_name="submission",
+            name="task_id",
+            field=models.ForeignKey(null=False, on_delete=models.CASCADE, to="task.id"),
         ),
     ]

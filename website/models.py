@@ -1,15 +1,16 @@
-from django.db import models
 from cloudinary.models import CloudinaryField
+from django.db import models
 
 # Create your models here.
+
 
 class Image(models.Model):
     id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=150, blank=True, null=True)
-    picture = CloudinaryField('image', null=True, blank=True)
+    picture = CloudinaryField("image", null=True, blank=True)
 
     def __str__(self):
-        return '{0}'.format(self.name)
+        return "{0}".format(self.name)
 
 
 class Achievement(models.Model):
@@ -26,7 +27,7 @@ class Achievement(models.Model):
     dateUpdated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '{0}'.format(self.team)
+        return "{0}".format(self.team)
 
 
 class Archive(models.Model):
@@ -43,7 +44,7 @@ class Archive(models.Model):
     dateUpdated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '{0}'.format(self.team)
+        return "{0}".format(self.team)
 
 
 class Event(models.Model):
@@ -62,7 +63,7 @@ class Event(models.Model):
     dateUpdated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '{}'.format(self.name)
+        return "{}".format(self.name)
 
 
 class Gallery(models.Model):
@@ -75,4 +76,4 @@ class Gallery(models.Model):
     dateUpdated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return '{0}'.format(self.name)
+        return "{0}".format(self.name)

@@ -1,22 +1,22 @@
 LAST_SENT = 0
-from review.models import Review, SelectionResult, Profile
-from django.db.models import Q
 import os
+from os import path
+
+from django.db.models import Q
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
-
 from ace.settings import BASE_DIR
-from os import path
-with open( path.join(BASE_DIR, 'Interview Review - Final List.tsv'), 'r+') as f:
-    tsv = f.read()
+from review.models import Profile, Review, SelectionResult
 
+with open(path.join(BASE_DIR, "Interview Review - Final List.tsv"), "r+") as f:
+    tsv = f.read()
 
 
 data = []
 i = -1
 
-API_KEY = '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'
+API_KEY = "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"
 
 # tsv = '''0	Chirag Jain	Prog	BCA	1A	1:00	PM	Thursday'''
 
@@ -32,25 +32,34 @@ for row in tsv.split("\n"):
     if len(name) == 2:
         qs = Profile.objects.filter(user__first_name=name[0], user__last_name=name[1])
     elif len(name) == 3:
-        qs = Profile.objects.filter(Q(user__first_name="{} {}".format(name[0], name[1]), user__last_name=name[2]) | Q(user__first_name=name[0], user__last_name="{} {}".format(name[1], name[2])))
+        qs = Profile.objects.filter(
+            Q(
+                user__first_name="{} {}".format(name[0], name[1]),
+                user__last_name=name[2],
+            )
+            | Q(
+                user__first_name=name[0],
+                user__last_name="{} {}".format(name[1], name[2]),
+            )
+        )
     else:
         qs = Profile.objects.filter(user__first_name=name[0])
-    
+
     qs = qs.exclude(selectionresult=None)
-    print( " ".join(name), qs.count() )
+    print(" ".join(name), qs.count())
     if qs.count() > 1:
         raise Exception("More than 1 result")
-    
+
     prof = qs[0]
 
     row.append(prof.email_id)
     row.append(prof.get_course_display())
     row.append(prof.get_section_display())
-    row.append( str(prof.id) )
+    row.append(str(prof.id))
 
-    data.append('\t'.join(row))
+    data.append("\t".join(row))
 
-    
+
 #     email = prof.email_id
 #     date = '5' if str(row[6]).lower() == 'thursday' else '6'
 #     sg = SendGridAPIClient( API_KEY )
@@ -76,5 +85,5 @@ for row in tsv.split("\n"):
 #     print(response.status_code)
 #     print(response.body)
 
-with open( path.join(BASE_DIR, 'Selection 2019 - result (1).tsv'), 'w+') as f:
+with open(path.join(BASE_DIR, "Selection 2019 - result (1).tsv"), "w+") as f:
     f.write("\n".join(data))
