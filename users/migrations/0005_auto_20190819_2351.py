@@ -7,18 +7,20 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0004_auto_20190819_2313'),
+        ("users", "0004_auto_20190819_2313"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='dob',
+            model_name="profile",
+            name="dob",
             field=models.DateField(blank=True, null=True),
         ),
         migrations.AlterField(
-            model_name='profile',
-            name='picture',
-            field=cloudinary.models.CloudinaryField(blank=True, max_length=255, null=True, verbose_name='image'),
+            model_name="profile",
+            name="picture",
+            field=cloudinary.models.CloudinaryField(
+                blank=True, max_length=255, null=True, verbose_name="image"
+            ),
         ),
     ]

@@ -7,56 +7,63 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Achievement',
+            name="Achievement",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('team', models.CharField(max_length=150)),
-                ('event_name', models.CharField(blank=True, max_length=500)),
-                ('position', models.CharField(max_length=5)),
-                ('college_name', models.CharField(max_length=10)),
-                ('fest_name', models.CharField(blank=True, max_length=100)),
-                ('event_month', models.DateField(blank=True, max_length=20, null=True)),
-                ('dateCreated', models.DateTimeField(auto_now_add=True)),
-                ('dateUpdated', models.DateTimeField(auto_now=True)),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("team", models.CharField(max_length=150)),
+                ("event_name", models.CharField(blank=True, max_length=500)),
+                ("position", models.CharField(max_length=5)),
+                ("college_name", models.CharField(max_length=10)),
+                ("fest_name", models.CharField(blank=True, max_length=100)),
+                ("event_month", models.DateField(blank=True, max_length=20, null=True)),
+                ("dateCreated", models.DateTimeField(auto_now_add=True)),
+                ("dateUpdated", models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Image',
+            name="Image",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(blank=True, max_length=150, null=True)),
-                ('picture', models.ImageField(blank=True, null=True, upload_to='', verbose_name='image')),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(blank=True, max_length=150, null=True)),
+                (
+                    "picture",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="", verbose_name="image"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Gallery',
+            name="Gallery",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(blank=True, max_length=150, null=True)),
-                ('description', models.TextField(blank=True, max_length=500, null=True)),
-                ('dateCreated', models.DateTimeField(auto_now_add=True)),
-                ('dateUpdated', models.DateTimeField(auto_now=True)),
-                ('image', models.ManyToManyField(to='website.Image')),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(blank=True, max_length=150, null=True)),
+                (
+                    "description",
+                    models.TextField(blank=True, max_length=500, null=True),
+                ),
+                ("dateCreated", models.DateTimeField(auto_now_add=True)),
+                ("dateUpdated", models.DateTimeField(auto_now=True)),
+                ("image", models.ManyToManyField(to="website.Image")),
             ],
         ),
         migrations.CreateModel(
-            name='Event',
+            name="Event",
             fields=[
-                ('id', models.BigAutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=150)),
-                ('description', models.TextField(max_length=500)),
-                ('event_type', models.CharField(max_length=10)),
-                ('start_date', models.DateField()),
-                ('end_date', models.DateField()),
-                ('registration_url', models.URLField(blank=True, null=True)),
-                ('dateCreated', models.DateTimeField(auto_now_add=True)),
-                ('dateUpdated', models.DateTimeField(auto_now=True)),
-                ('images', models.ManyToManyField(to='website.Image')),
+                ("id", models.BigAutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=150)),
+                ("description", models.TextField(max_length=500)),
+                ("event_type", models.CharField(max_length=10)),
+                ("start_date", models.DateField()),
+                ("end_date", models.DateField()),
+                ("registration_url", models.URLField(blank=True, null=True)),
+                ("dateCreated", models.DateTimeField(auto_now_add=True)),
+                ("dateUpdated", models.DateTimeField(auto_now=True)),
+                ("images", models.ManyToManyField(to="website.Image")),
             ],
         ),
     ]

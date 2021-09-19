@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
+
 class Setting(models.Model):
 
     TYPE_INT = 1
@@ -12,11 +13,11 @@ class Setting(models.Model):
     TYPE_OBJECT = 5
 
     VALUE_TYPES = (
-        (TYPE_INT, 'Integer'),
-        (TYPE_FLOAT, 'Float'),
-        (TYPE_CHAR, 'Char/String'),
-        (TYPE_ARRAY, 'Array'),
-        (TYPE_OBJECT, 'Object')
+        (TYPE_INT, "Integer"),
+        (TYPE_FLOAT, "Float"),
+        (TYPE_CHAR, "Char/String"),
+        (TYPE_ARRAY, "Array"),
+        (TYPE_OBJECT, "Object"),
     )
 
     key_name = models.CharField(_("Property Name"), max_length=50, unique=True)

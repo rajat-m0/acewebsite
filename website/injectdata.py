@@ -1,8 +1,10 @@
-from users.models import Profile
 from django.contrib.auth.models import User
+
+from users.models import Profile
+
 raise Exception("Cant call this")
 
-members = '''Anmol Jain,Y,,Akshey Arora
+members = """Anmol Jain,Y,,Akshey Arora
 Devansh Taneja,Y,,Bhavika Arora
 Kamal Nanda,,,Bhavishya Sahdev
 Dhruv Maithil,Y,,Deepanshu Sarkar
@@ -46,18 +48,26 @@ Agam Makhija,,,
 Deepanshu Sarkar,,,
 Bhavishya Sahdev,,,
 Dhirendra Kumar Choudhary,Y,,
-Chirag Jain,Y,Y,'''.split("\n")
+Chirag Jain,Y,Y,""".split(
+    "\n"
+)
 
 for member in members:
     data = member.split(",")
     name = data[0]
     username = name.replace(" ", "").lower()
-    user = User.objects.create_user(username=username, email=username + "@vipsace.org", password=None, first_name=name.split(" ")[0], last_name=name.split(" ")[1])
+    user = User.objects.create_user(
+        username=username,
+        email=username + "@vipsace.org",
+        password=None,
+        first_name=name.split(" ")[0],
+        last_name=name.split(" ")[1],
+    )
     Profile.objects.create(
         is_member=True,
-        is_core=(data[1] == 'Y'),
-        is_council=(data[2] == 'Y'),
+        is_core=(data[1] == "Y"),
+        is_council=(data[2] == "Y"),
         user=user,
         email_id=username + "@vipsace.org",
-        course=Profile.COURSE_BCA
+        course=Profile.COURSE_BCA,
     )

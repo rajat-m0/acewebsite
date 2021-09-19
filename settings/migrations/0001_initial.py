@@ -7,18 +7,39 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Setting',
+            name="Setting",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('key_name', models.CharField(max_length=50, unique=True, verbose_name='Property Name')),
-                ('key_val', models.CharField(max_length=500, verbose_name='Property Value')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='created at')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='updated at')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "key_name",
+                    models.CharField(
+                        max_length=50, unique=True, verbose_name="Property Name"
+                    ),
+                ),
+                (
+                    "key_val",
+                    models.CharField(max_length=500, verbose_name="Property Value"),
+                ),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="created at"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="updated at"),
+                ),
             ],
         ),
     ]

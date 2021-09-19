@@ -16,10 +16,9 @@ import os
 import dj_database_url
 import raven
 from django.utils.timezone import get_current_timezone
-
 from dotenv import load_dotenv
-load_dotenv()
 
+load_dotenv()
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -27,107 +26,113 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DEBUG', 'false')).lower() != 'false'
+DEBUG = str(os.environ.get("DEBUG", "false")).lower() != "false"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'vipsace-v2.herokuapp.com', 'www.vipsace-v2.herokuapp.com', 'vipsace.org', '*']
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "vipsace-v2.herokuapp.com",
+    "www.vipsace-v2.herokuapp.com",
+    "vipsace.org",
+    "*",
+]
 
 # Application definition
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_cron',
-    'raven.contrib.django.raven_compat',
-    'social_django',
-    'review',
-    'portal',
-    'users',
-    'settings',
-    'website',
-    'django_celery_beat',
-    'cloudinary',
-    'mathfilters',
-    'whatsappbot',
-    'projectmanagement',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_cron",
+    "raven.contrib.django.raven_compat",
+    "social_django",
+    "review",
+    "portal",
+    "users",
+    "settings",
+    "website",
+    "django_celery_beat",
+    "cloudinary",
+    "mathfilters",
+    "whatsappbot",
+    "projectmanagement",
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware',
-    'raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "raven.contrib.django.raven_compat.middleware.Sentry404CatchMiddleware",
+    "raven.contrib.django.raven_compat.middleware.SentryResponseErrorIdMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "social_django.middleware.SocialAuthExceptionMiddleware",
 ]
 
-ROOT_URLCONF = 'ace.urls'
+ROOT_URLCONF = "ace.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "social_django.context_processors.backends",
+                "social_django.context_processors.login_redirect",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'ace.wsgi.application'
+WSGI_APPLICATION = "ace.wsgi.application"
 
 
-FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.MemoryFileUploadHandler",
- "django.core.files.uploadhandler.TemporaryFileUploadHandler",]
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler",
+]
 
 
-DATABASES = {
-    'default': dj_database_url.config()
-}
+DATABASES = {"default": dj_database_url.config()}
 
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.google.GoogleOAuth2',
-    'social_core.backends.linkedin.LinkedinOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
+    "social_core.backends.facebook.FacebookOAuth2",
+    "social_core.backends.google.GoogleOAuth2",
+    "social_core.backends.linkedin.LinkedinOAuth2",
+    "django.contrib.auth.backends.ModelBackend",
 )
 
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 
@@ -137,60 +142,72 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Media files
-MEDIA_URL = '/files/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/')
+MEDIA_URL = "/files/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "tmp/")
 
 
 # ACE Portal
 tz = get_current_timezone()
-SELECTION_START_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_START_DATE'), "%d/%m/%Y"))
-SELECTION_END_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_END_DATE'), "%d/%m/%Y %H:%M:%S"))
-SELECTION_RESULT_DATE = tz.localize(datetime.datetime.strptime(os.environ.get('SELECTION_RESULT_DATE'), "%d/%m/%Y %H:%M:%S"))
+SELECTION_START_DATE = tz.localize(
+    datetime.datetime.strptime(os.environ.get("SELECTION_START_DATE"), "%d/%m/%Y")
+)
+SELECTION_END_DATE = tz.localize(
+    datetime.datetime.strptime(
+        os.environ.get("SELECTION_END_DATE"), "%d/%m/%Y %H:%M:%S"
+    )
+)
+SELECTION_RESULT_DATE = tz.localize(
+    datetime.datetime.strptime(
+        os.environ.get("SELECTION_RESULT_DATE"), "%d/%m/%Y %H:%M:%S"
+    )
+)
 
 
 # Celery
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = "redis://127.0.0.1:6379"
 CELERY_RESULT_BACKEND = CELERY_BROKER_URL
-CELERY_ACCEPT_CONTENT = ['pickle', 'application/json']
-CELERY_TASK_SERIALIZER = 'pickle'
-CELERY_RESULT_SERIALIZER = 'pickle'
+CELERY_ACCEPT_CONTENT = ["pickle", "application/json"]
+CELERY_TASK_SERIALIZER = "pickle"
+CELERY_RESULT_SERIALIZER = "pickle"
 CELERY_TIMEZONE = TIME_ZONE
 
 
-#Social Auth
+# Social Auth
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
-SOCIAL_AUTH_URL_NAMESPACE = 'social'
+SOCIAL_AUTH_URL_NAMESPACE = "social"
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get("SOCIAL_AUTH_FACEBOOK_SECRET")
 # SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = ['username', 'first_name', 'last_name', 'email']
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
 # SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['']
 
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY')
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET')
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = os.environ.get("SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY")
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = os.environ.get(
+    "SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET"
+)
 
 # SOCIAL_AUTH_BACKEND_ERROR_URL = '/portal/'
-SOCIAL_AUTH_LOGIN_ERROR_URL = 'portal_landing'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'user_signup'
+SOCIAL_AUTH_LOGIN_ERROR_URL = "portal_landing"
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = "user_signup"
 
 SOCIAL_AUTH_PIPELINE = (
-    'social_core.pipeline.social_auth.social_details',
-    'social_core.pipeline.social_auth.social_uid',
-    'social_core.pipeline.social_auth.auth_allowed',
-    'social_core.pipeline.social_auth.social_user',
-    'social_core.pipeline.user.get_username',
-    'social_core.pipeline.social_auth.associate_by_email',  # <--- enable this one
-    'social_core.pipeline.user.create_user',
-    'social_core.pipeline.social_auth.associate_user',
-    'social_core.pipeline.social_auth.load_extra_data',
-    'social_core.pipeline.user.user_details',
+    "social_core.pipeline.social_auth.social_details",
+    "social_core.pipeline.social_auth.social_uid",
+    "social_core.pipeline.social_auth.auth_allowed",
+    "social_core.pipeline.social_auth.social_user",
+    "social_core.pipeline.user.get_username",
+    "social_core.pipeline.social_auth.associate_by_email",  # <--- enable this one
+    "social_core.pipeline.user.create_user",
+    "social_core.pipeline.social_auth.associate_user",
+    "social_core.pipeline.social_auth.load_extra_data",
+    "social_core.pipeline.user.user_details",
 )
 
 # Cron Jobs
@@ -200,7 +217,7 @@ CRON_CLASSES = [
 
 if not DEBUG:
     RAVEN_CONFIG = {
-        'dsn': os.environ.get('RAVEN_DSN'),
+        "dsn": os.environ.get("RAVEN_DSN"),
     }
-    
+
     SOCIAL_AUTH_POSTGRES_JSONFIELD = True

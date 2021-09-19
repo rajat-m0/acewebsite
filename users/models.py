@@ -1,6 +1,7 @@
-from django.db import models
-from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
+from django.db import models
+
 # Create your models here.
 
 
@@ -9,9 +10,9 @@ class Profile(models.Model):
     COURSE_MCA = 2
     COURSE_OTHER = 3
     COURSES = (
-        (COURSE_BCA, 'BCA'),
-        (COURSE_MCA, 'MCA'),
-        (COURSE_OTHER, 'Other'),
+        (COURSE_BCA, "BCA"),
+        (COURSE_MCA, "MCA"),
+        (COURSE_OTHER, "Other"),
     )
 
     SECTIONS = (
@@ -49,39 +50,40 @@ class Profile(models.Model):
 
     position = models.TextField(null=True, blank=True)
     rank = models.IntegerField(null=True, blank=True)
-    
+
     dob = models.DateField(null=True, blank=True)
-    
+
     submission_folder = models.CharField(null=True, blank=True, max_length=100)
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
-    github = models.CharField('github username', null=True, blank=True, max_length=50)
+    github = models.CharField("github username", null=True, blank=True, max_length=50)
     website = models.URLField(null=True, blank=True)
     behance = models.URLField(null=True, blank=True)
-    linkedin = models.CharField('linkedin id', null=True, blank=True, max_length=150)
-    facebook = models.CharField('facebook username', null=True, blank=True, max_length=50)
-    insta = models.CharField('insta handle', null=True, blank=True, max_length=50)
+    linkedin = models.CharField("linkedin id", null=True, blank=True, max_length=150)
+    facebook = models.CharField(
+        "facebook username", null=True, blank=True, max_length=50
+    )
+    insta = models.CharField("insta handle", null=True, blank=True, max_length=50)
 
-    picture = CloudinaryField('image', null=True, blank=True)
+    picture = CloudinaryField("image", null=True, blank=True)
 
     def get_membership(self):
         if self.is_council:
-            return 'Council Member'
+            return "Council Member"
         elif self.is_core:
-            return 'Core Member'
+            return "Core Member"
         elif self.is_member:
-            return 'Member'
+            return "Member"
         else:
-            return ''
+            return ""
 
     def name(self):
-        return '{} {}'.format(self.user.first_name, self.user.last_name)
-        
-    def __str__(self):
-        return '{} {}'.format(self.user.first_name, self.user.last_name)
+        return "{} {}".format(self.user.first_name, self.user.last_name)
 
+    def __str__(self):
+        return "{} {}".format(self.user.first_name, self.user.last_name)
 
 
 class Alumni(models.Model):
@@ -96,7 +98,7 @@ class Alumni(models.Model):
 class Mentor(models.Model):
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
     about = models.TextField(max_length=500, blank=True, null=True)
-    designation  = models.CharField(max_length=50, blank=True, null=True)
+    designation = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return str(self.profile)
