@@ -84,6 +84,9 @@ def magazine2019(request):
 def magazine2020(request):
     return redirect('https://bit.ly/acemagv4')
 
+def magazine2021(request):
+    return redirect('https://bit.ly/acemagv4')
+
 
 
 def view_404(request, exception):
