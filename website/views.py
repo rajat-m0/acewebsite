@@ -85,7 +85,7 @@ def magazine2020(request):
     return redirect('https://bit.ly/acemagv4')
 
 def magazine2021(request):
-    return redirect('https://bit.ly/acemagv4')
+    return redirect('https://bit.ly/ACEMag2021')
 
 
 
